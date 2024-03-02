@@ -3,18 +3,30 @@ import ReactDOM from 'react-dom/client'
 import { Canvas } from '@react-three/fiber'
 import Experience from './Experience'
 import { OrbitControls } from '@react-three/drei'
+import { KeyboardControls } from '@react-three/drei'
 
 const root = ReactDOM.createRoot(document.querySelector('#root'))
 
 root.render(
     <>
-        <Canvas shadows camera={{fov: 50, position: [0, 1.5, 5]}} >
-            <OrbitControls 
-                maxDistance={30}
-                minDistance={5}
-                maxPolarAngle={Math.PI * 0.45}
-            />
-            <Experience />
-        </Canvas>
+        <KeyboardControls 
+            map={ [
+                { name: 'forward', keys: [ 'ArrowUp', 'KeyW' ] },
+                { name: 'backward', keys: [ 'ArrowDown', 'KeyS' ] },
+                { name: 'leftward', keys: [ 'ArrowLeft', 'KeyA' ] },
+                { name: 'rightward', keys: [ 'ArrowRight', 'KeyD' ] },
+                { name: 'jump', keys: [ 'Space' ] },
+            ] }
+        >
+            <Canvas shadows camera={{fov: 50, position: [0, 1.5, 15]}} >
+                <OrbitControls 
+                    maxDistance={30}
+                    minDistance={5}
+                    maxPolarAngle={Math.PI * 0.45}
+                />
+                <Experience />
+            </Canvas>
+        </KeyboardControls>
+        
     </>
 )
