@@ -18,12 +18,12 @@ root.render(
                 { name: 'jump', keys: [ 'Space' ] },
             ] }
         >
-            <Canvas shadows camera={{fov: 50, position: [0, 1.5, 15]}} >
-                <OrbitControls 
+            <Canvas shadows camera={{fov: 50, position: [0, 0, 0]}} >
+                {/* <OrbitControls 
                     maxDistance={30}
                     minDistance={5}
                     maxPolarAngle={Math.PI * 0.45}
-                />
+                /> */}
                 <Experience />
             </Canvas>
         </KeyboardControls>
