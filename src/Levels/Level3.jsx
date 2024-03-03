@@ -3,7 +3,7 @@ import { RigidBody } from "@react-three/rapier"
 export default function Level3()
 {
     return <>
-        <RigidBody type="fixed">
+        <RigidBody type="fixed" friction={1}>
             <mesh position={[-8, 0.5, 0]}>
                 <boxGeometry args={[1, 1, 7]}/>
                 <meshNormalMaterial />
@@ -66,7 +66,7 @@ export default function Level3()
             </mesh>
         </RigidBody>
 
-        <RigidBody type="fixed">
+        <RigidBody type="fixed" friction={1}>
             <mesh position={[-5.5, 0, 0.5]}>
                 <boxGeometry args={[4, 0.1, 6]}/>
                 <meshBasicMaterial color={'red'} />
