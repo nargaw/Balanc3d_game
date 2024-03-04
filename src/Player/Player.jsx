@@ -80,7 +80,7 @@ export default function Player()
         const torqueStrength = 0.2 * delta
         
         if(upDown <= 0.5 && upDown >= -0.5){
-            impulse.z = upDown * delta
+            impulse.z = upDown * delta * 0.5
             if(upDown > 0){
                 torque.x -= torqueStrength
             } else {
@@ -89,7 +89,7 @@ export default function Player()
         }
 
         if(leftRight <= 0.5 && leftRight >= -0.5){
-            impulse.x = upDown * delta
+            impulse.x = upDown * delta * 0.5
             if(leftRight > 0)
             {
                 torque.z -= torqueStrength
@@ -98,32 +98,29 @@ export default function Player()
             }
         }
 
-        if(forward)
-        {
-            impulse.z -= impulseStrength
-            torque.x -= torqueStrength
+        // if(forward)
+        // {
+        //     impulse.z -= impulseStrength
+        //     torque.x -= torqueStrength
+        // }
 
-           
+        // if(backward)
+        // {
+        //     impulse.z += impulseStrength
+        //     torque.x += torqueStrength
+        // }
 
-        }
+        // if(rightward)
+        // {
+        //     impulse.x += impulseStrength
+        //     torque.z -= torqueStrength
+        // }
 
-        if(backward)
-        {
-            impulse.z += impulseStrength
-            torque.x += torqueStrength
-        }
-
-        if(rightward)
-        {
-            impulse.x += impulseStrength
-            torque.z -= torqueStrength
-        }
-
-        if(leftward)
-        {
-            impulse.x -= impulseStrength
-            torque.z += torqueStrength
-        }
+        // if(leftward)
+        // {
+        //     impulse.x -= impulseStrength
+        //     torque.z += torqueStrength
+        // }
 
         body.current.applyImpulse(impulse)
         body.current.applyTorqueImpulse(torque)
