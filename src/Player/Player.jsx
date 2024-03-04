@@ -83,7 +83,6 @@ export default function Player()
         {
             impulse.z -= impulseStrength
             torque.x -= torqueStrength
-            // console.log(impulse.z)
         }
 
         if(backward)
@@ -103,10 +102,6 @@ export default function Player()
             impulse.x -= impulseStrength
             torque.z += torqueStrength
         }
-
-        
-        
-        
 
         body.current.applyImpulse(impulse)
         body.current.applyTorqueImpulse(torque)
@@ -151,6 +146,5 @@ export default function Player()
                 <meshBasicMaterial color='green' />
             </mesh>
         </RigidBody>
-        {/* <ChaseCamera object={mesh} offsetView={new THREE.Vector3(0, 4, 5)}/>    */}
     </>
 }
