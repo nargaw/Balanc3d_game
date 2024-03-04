@@ -3,10 +3,17 @@ import { useFrame } from "@react-three/fiber";
 import { useKeyboardControls } from "@react-three/drei";
 import { useRef, useEffect, useState } from "react";
 import * as THREE from 'three'
-import ChaseCamera from "../Utils/ChaseCamera";
+import useGame from "../stores/useGame";
 
 export default function Player()
 {
+
+    const start = useGame((state) => state.start)
+    const end = useGame((state) => state.end)
+    const level = useGame((state) => state.level)
+    const restart = useGame((state) => state.restart)
+    const phase = useGame((state) => state.phase)
+    console.log(phase)
 
     const [ subscribeKeys, getKeys ] = useKeyboardControls()
     const [ smoothedCameraPosition ] = useState(() => new THREE.Vector3(10, 10, 10))
@@ -14,6 +21,53 @@ export default function Player()
 
     const body = useRef()
     const mesh = useRef()
+
+    const reset = () => 
+    {
+        body.current.setTranslation({ x: -5.5, y: 1, z: 2 })
+        body.current.setLinvel({ x: 0, y: 0, z: 0 })
+        body.current.setAngvel({ x: 0, y: 0, z: 0 })
+    }
+
+    useEffect(() =>
+    {
+        const unsubscribeReset = useGame.subscribe(
+            (state) => state.phase,
+            (value) =>
+            {
+                if(value === 'ready')
+                    reset()
+            }
+        )
+
+        const unsubscribeAny = subscribeKeys(
+            () =>
+            {
+                start()
+            }
+        )
+
+        return () => 
+        {
+            unsubscribeReset()
+            unsubscribeAny()
+        }
+    }, [])
+
+    /**
+     * device orientation
+     */
+    let upDown
+    let leftRight
+
+    const handleOrientation = (e) => {
+        upDown = -(e.beta / 180) * 2
+        leftRight = (e.gamma /90 / 2) * 2
+        console.log('updown: ' + upDown)
+        console.log('leftRight: ' + leftRight)
+    }
+
+    window.addEventListener('deviceorientation', handleOrientation, true)
 
     useFrame((state, delta) => 
     {
@@ -32,23 +86,27 @@ export default function Player()
             // console.log(impulse.z)
         }
 
+        if(backward)
+        {
+            impulse.z += impulseStrength
+            torque.x += torqueStrength
+        }
+
         if(rightward)
         {
             impulse.x += impulseStrength
             torque.z -= torqueStrength
         }
 
-        if(backward)
-        {
-            impulse.z += impulseStrength
-            torque.x += torqueStrength
-        }
-        
         if(leftward)
         {
             impulse.x -= impulseStrength
             torque.z += torqueStrength
         }
+
+        
+        
+        
 
         body.current.applyImpulse(impulse)
         body.current.applyTorqueImpulse(torque)
@@ -68,8 +126,13 @@ export default function Player()
 
         state.camera.position.copy(smoothedCameraPosition)
         state.camera.lookAt(smoothedCameraTarget)
-
         
+        if(bodyPosition.z < -15.5){
+            end()
+        }
+        if(bodyPosition.y < -4){
+            restart()
+        }
     })
 
     return <>

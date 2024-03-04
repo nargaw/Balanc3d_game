@@ -56,12 +56,16 @@ export default function Level3()
                 <boxGeometry args={[1, 1, 2]}/>
                 <meshNormalMaterial />
             </mesh>
-            <mesh position={[2, 0.5, -16.5]}>
-                <boxGeometry args={[1, 1, 2]}/>
+            <mesh position={[2, 0.5, -18.5]}>
+                <boxGeometry args={[1, 1, 6]}/>
                 <meshNormalMaterial />
             </mesh>
-            <mesh position={[-3, 0.5, -17]}>
-                <boxGeometry args={[1, 1, 1]}/>
+            <mesh position={[-3, 0.5, -19.]}>
+                <boxGeometry args={[1, 1, 5]}/>
+                <meshNormalMaterial />
+            </mesh>
+            <mesh position={[-0.5, 0.5, -22.]}>
+                <boxGeometry args={[6, 1, 1]}/>
                 <meshNormalMaterial />
             </mesh>
         </RigidBody>
@@ -87,8 +91,8 @@ export default function Level3()
                 <boxGeometry args={[6, 0.1, 2]}/>
                 <meshBasicMaterial color={'red'} />
             </mesh>
-            <mesh position={[-0.5, 0, -16.5]}>
-                <boxGeometry args={[4, 0.1, 2]}/>
+            <mesh position={[-0.5, 0, -18.5]}>
+                <boxGeometry args={[4, 0.1, 6]}/>
                 <meshBasicMaterial color={'red'} />
             </mesh>
         </RigidBody>
