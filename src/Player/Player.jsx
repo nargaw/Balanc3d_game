@@ -57,7 +57,7 @@ export default function Player()
         const cameraPosition = new THREE.Vector3()
         cameraPosition.copy(bodyPosition)
         cameraPosition.z += 5.25
-        cameraPosition.y += 2.65
+        cameraPosition.y += 20.65
     
         const cameraTarget = new THREE.Vector3()
         cameraTarget.copy(bodyPosition)
