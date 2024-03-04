@@ -29,30 +29,7 @@ export default function Player()
         body.current.setAngvel({ x: 0, y: 0, z: 0 })
     }
 
-    useEffect(() =>
-    {
-        const unsubscribeReset = useGame.subscribe(
-            (state) => state.phase,
-            (value) =>
-            {
-                if(value === 'ready')
-                    reset()
-            }
-        )
-
-        const unsubscribeAny = subscribeKeys(
-            () =>
-            {
-                start()
-            }
-        )
-
-        return () => 
-        {
-            unsubscribeReset()
-            unsubscribeAny()
-        }
-    }, [])
+    
 
     /**
      * device orientation
@@ -69,6 +46,38 @@ export default function Player()
 
     window.addEventListener('deviceorientation', handleOrientation, true)
 
+    useEffect(() =>
+    {
+        const unsubscribeReset = useGame.subscribe(
+            (state) => state.phase,
+            (value) =>
+            {
+                if(value === 'ready')
+                    reset()
+            }
+        )
+
+        // const unsubscribeAny = subscribeKeys(
+        //     () =>
+        //     {
+        //         start()
+        //     }
+        // )
+
+        const unsubscribeAny = (
+            () =>
+            {
+                start()
+            }
+        )
+
+        return () => 
+        {
+            unsubscribeReset()
+            unsubscribeAny()
+        }
+    }, [])
+
     useFrame((state, delta) => 
     {
         const {forward, backward, leftward, rightward}  = getKeys()
@@ -76,30 +85,37 @@ export default function Player()
         const impulse = {x: 0., y: 0, z: 0}
         const torque = {x: 0, y: 0, z: 0}
 
+        // const impulseStrength = 0.6 * delta 
+        // const torqueStrength = 0.2 * delta
         const impulseStrength = 0.6 * delta 
         const torqueStrength = 0.2 * delta
         
         if(upDown <= 0.5 && upDown >= -0.5){
             // impulse.z = upDown * delta * 0.5
-            if(upDown > 0){
-                torque.x -= torqueStrength
+            if(upDown > 0.05){
+                torque.x -= torqueStrength * upDown
                 impulse.z -= impulseStrength * upDown
-            } else {
-                torque.x += torqueStrength
+            } else if(upDown < 0.05) {
+                torque.x += torqueStrength * upDown
                 impulse.z += impulseStrength * upDown
+            } else {
+                torque.x = 0
+                impulse.z = 0
             }
         }
 
         if(leftRight <= 0.5 && leftRight >= -0.5){
             // impulse.x = upDown * delta * 0.5
-            if(leftRight > 0)
+            if(leftRight > 0.05)
             {
-                torque.z -= torqueStrength
+                torque.z -= torqueStrength * leftRight
                 impulse.x += impulseStrength * leftRight
-            } else {
-                torque.z += torqueStrength
+            } else if (leftRight < 0.05) {
+                torque.z += torqueStrength * leftRight
                 impulse.x -= impulseStrength * leftRight
-
+            } else {
+                torque.z = 0
+                impulse.x = 0
             }
         }
 
@@ -151,6 +167,7 @@ export default function Player()
         }
         if(bodyPosition.y < -4){
             restart()
+            console.log('here')
         }
     })
 
