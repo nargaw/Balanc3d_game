@@ -64,12 +64,12 @@ export default function Player()
         //     }
         // )
 
-        const unsubscribeAny = (
-            () =>
-            {
-                start()
-            }
-        )
+        // const unsubscribeAny = (
+        //     () =>
+        //     {
+        //         start()
+        //     }
+        // )
 
         return () => 
         {
@@ -91,32 +91,34 @@ export default function Player()
         const torqueStrength = 0.2 * delta
         
         if(upDown <= 0.5 && upDown >= -0.5){
-            // impulse.z = upDown * delta * 0.5
-            if(upDown > 0.05){
-                torque.x -= torqueStrength * upDown
-                impulse.z -= impulseStrength * upDown
-            } else if(upDown < 0.05) {
-                torque.x += torqueStrength * upDown
-                impulse.z += impulseStrength * upDown
-            } else {
-                torque.x = 0
-                impulse.z = 0
-            }
+            impulse.z = impulseStrength * upDown
+            torque.x = torqueStrength * upDown
+            // if(upDown > 0.05){
+            //     torque.x -= torqueStrength * upDown
+            //     // impulse.z -= impulseStrength * upDown
+            // } else if(upDown < 0.05) {
+            //     torque.x += torqueStrength * upDown
+            //     // impulse.z += impulseStrength * upDown
+            // } else {
+            //     torque.x = 0
+            //     impulse.z = 0
+            // }
         }
 
         if(leftRight <= 0.5 && leftRight >= -0.5){
-            // impulse.x = upDown * delta * 0.5
-            if(leftRight > 0.05)
-            {
-                torque.z -= torqueStrength * leftRight
-                impulse.x += impulseStrength * leftRight
-            } else if (leftRight < 0.05) {
-                torque.z += torqueStrength * leftRight
-                impulse.x -= impulseStrength * leftRight
-            } else {
-                torque.z = 0
-                impulse.x = 0
-            }
+            impulse.x = impulseStrength * leftRight
+            torque.z = torqueStrength * leftRight
+            // if(leftRight > 0.05)
+            // {
+            //     torque.z -= torqueStrength * leftRight
+            //     impulse.x += impulseStrength * leftRight
+            // } else if (leftRight < 0.05) {
+            //     torque.z += torqueStrength * leftRight
+            //     impulse.x -= impulseStrength * leftRight
+            // } else {
+            //     torque.z = 0
+            //     impulse.x = 0
+            // }
         }
 
         // if(forward)
@@ -162,12 +164,16 @@ export default function Player()
         state.camera.position.copy(smoothedCameraPosition)
         state.camera.lookAt(smoothedCameraTarget)
         
+
+        if(bodyPosition.x !== -5.5 || bodyPosition.z !== 2){
+            start()
+        }
+
         if(bodyPosition.z < -15.5){
             end()
         }
         if(bodyPosition.y < -4){
             restart()
-            console.log('here')
         }
     })
 
