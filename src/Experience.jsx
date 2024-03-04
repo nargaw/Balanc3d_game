@@ -3,7 +3,7 @@ import Environment from "./Environment"
 import Lights from "./Lights"
 import TestObj from "./TestObj"
 import { Physics } from "@react-three/rapier"
-import Player from "./Player/player"
+import Player from "./Player/player.jsx"
 
 export default function Experience()
 {
