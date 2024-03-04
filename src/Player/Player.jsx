@@ -77,12 +77,34 @@ export default function Player()
         const torque = {x: 0, y: 0, z: 0}
 
         const impulseStrength = 0.6 * delta 
-        const torqueStrength = 0.2 * delta 
+        const torqueStrength = 0.2 * delta
+        
+        if(upDown <= 0.5 && upDown >= -0.5){
+            impulse.z = upDown * delta
+            if(upDown > 0){
+                torque.x -= torqueStrength
+            } else {
+                torque.x += torqueStrength
+            }
+        }
+
+        if(leftRight <= 0.5 && leftRight >= -0.5){
+            impulse.x = upDown * delta
+            if(leftRight > 0)
+            {
+                torque.z -= torqueStrength
+            } else {
+                torque.z += torqueStrength
+            }
+        }
 
         if(forward)
         {
             impulse.z -= impulseStrength
             torque.x -= torqueStrength
+
+           
+
         }
 
         if(backward)
