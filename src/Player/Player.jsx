@@ -57,24 +57,9 @@ export default function Player()
             }
         )
 
-        // const unsubscribeAny = subscribeKeys(
-        //     () =>
-        //     {
-        //         start()
-        //     }
-        // )
-
-        // const unsubscribeAny = (
-        //     () =>
-        //     {
-        //         start()
-        //     }
-        // )
-
         return () => 
         {
             unsubscribeReset()
-            unsubscribeAny()
         }
     }, [])
 
@@ -91,30 +76,33 @@ export default function Player()
         const torqueStrength = 0.2 * delta
         
         if(upDown <= 0.5 && upDown >= -0.5){
-            if(upDown > 0.05){
-                torque.x -= torqueStrength * upDown
-                impulse.z -= impulseStrength * upDown
-            } else if(upDown < 0.05) {
-                torque.x += torqueStrength * upDown
-                impulse.z += impulseStrength * upDown
-            } else {
-                torque.x = 0
-                impulse.z = 0
-            }
+            torque.x = torqueStrength * upDown
+            impulse.z = impulseStrength * upDown
+            // if(upDown > 0.05){
+            //     torque.x -= torqueStrength * upDown
+            //     impulse.z -= impulseStrength * upDown
+            // } else if(upDown < 0.05) {
+            //     torque.x += torqueStrength * upDown
+            //     impulse.z += impulseStrength * upDown
+            // } else {
+            //     torque.x = 0
+            //     impulse.z = 0
+            //}
         }
 
         if(leftRight <= 0.5 && leftRight >= -0.5){
-            if(leftRight > 0.05)
-            {
-                torque.z -= torqueStrength * leftRight
-                impulse.x += impulseStrength * leftRight
-            } else if (leftRight < 0.05) {
-                torque.z += torqueStrength * leftRight
-                impulse.x -= impulseStrength * leftRight
-            } else {
-                torque.z = 0
-                impulse.x = 0
-            }
+            torque.z = torqueStrength * leftRight
+            impulse.x = impulseStrength * leftRight
+            // if(leftRight > 0.05)
+            // {
+                
+            // } else if (leftRight < 0.05) {
+            //     torque.z = torqueStrength * leftRight
+            //     impulse.x = impulseStrength * leftRight
+            // } else {
+            //     torque.z = 0
+            //     impulse.x = 0
+            // }
         }
 
         // if(forward)
