@@ -40,8 +40,6 @@ export default function Player()
     const handleOrientation = (e) => {
         upDown = -(e.beta / 180) * 2
         leftRight = (e.gamma /90 / 2) * 2
-        // console.log('updown: ' + upDown)
-        // console.log('leftRight: ' + leftRight)
     }
 
     window.addEventListener('deviceorientation', handleOrientation, true)
@@ -70,19 +68,17 @@ export default function Player()
         const impulse = {x: 0., y: 0, z: 0}
         const torque = {x: 0, y: 0, z: 0}
 
-        const impulseStrength = 0.6 * delta 
-        const torqueStrength = 0.2 * delta
+        const impulseStrength = 0.6 * delta * 2
+        const torqueStrength = 0.2 * delta * 2
         
         if(upDown > 0.05){
             impulse.z -= impulseStrength * upDown
             torque.x -= torqueStrength * upDown
-            // console.log(impulse.z, torque.x)
         }
 
-        if(upDown < 0.05){
+        if(upDown < -0.05){
             impulse.z += impulseStrength * -upDown
             torque.x += torqueStrength * -upDown
-            // console.log(impulse.z, torque.x)
         }
 
         if(leftRight > 0.05){
@@ -90,36 +86,34 @@ export default function Player()
             torque.z -= torqueStrength * leftRight
         }
 
-        if(leftRight < 0.05){
+        if(leftRight < -0.05){
             impulse.x -= impulseStrength * -leftRight
             torque.z += torqueStrength * -leftRight
-            console.log(impulse.x, torque.z)
-            console.log(leftRight)
         }
 
-        // if(forward)
-        // {
-        //     impulse.z -= impulseStrength
-        //     torque.x -= torqueStrength
-        // }
+        if(forward)
+        {
+            impulse.z -= impulseStrength
+            torque.x -= torqueStrength
+        }
 
-        // if(backward)
-        // {
-        //     impulse.z += impulseStrength
-        //     torque.x += torqueStrength
-        // }
+        if(backward)
+        {
+            impulse.z += impulseStrength
+            torque.x += torqueStrength
+        }
 
-        // if(rightward)
-        // {
-        //     impulse.x += impulseStrength
-        //     torque.z -= torqueStrength
-        // }
+        if(rightward)
+        {
+            impulse.x += impulseStrength
+            torque.z -= torqueStrength
+        }
 
-        // if(leftward)
-        // {
-        //     impulse.x -= impulseStrength
-        //     torque.z += torqueStrength
-        // }
+        if(leftward)
+        {
+            impulse.x -= impulseStrength
+            torque.z += torqueStrength
+        }
 
         body.current.applyImpulse(impulse)
         body.current.applyTorqueImpulse(torque)
