@@ -88,14 +88,14 @@ export default function Player()
         if(leftRight > 0.05){
             impulse.x += impulseStrength * leftRight
             torque.z -= torqueStrength * leftRight
+        }
+
+        if(leftRight < 0.05){
+            impulse.x -= impulseStrength * leftRight
+            torque.z += torqueStrength * leftRight
             console.log(impulse.x, torque.z)
             console.log(leftRight)
         }
-
-        // if(leftRight < 0.05){
-        //     impulse.x -= impulseStrength
-        //     torque.z += torqueStrength
-        // }
 
         // if(forward)
         // {
