@@ -80,8 +80,9 @@ export default function Player()
         }
 
         if(upDown < 0.05){
-            impulse.z += impulseStrength * upDown
-            torque.x += torqueStrength * upDown
+            impulse.z += impulseStrength * -upDown
+            torque.x += torqueStrength * -upDown
+            console.log(impulse.z, torque.x)
         }
 
         // if(leftRight > 0.05){
