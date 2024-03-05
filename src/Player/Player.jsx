@@ -77,14 +77,24 @@ export default function Player()
 
         console.log(impulse.z, torque.x)
         
-        if(upDown > 0){
+        if(upDown > 0.05){
             impulse.z -= impulseStrength
             torque.x -= torqueStrength
         }
 
-        if(upDown < 0){
+        if(upDown < 0.05){
             impulse.z += impulseStrength 
             torque.x += torqueStrength 
+        }
+
+        if(leftRight > 0.05){
+            impulse.x += impulseStrength
+            torque.z -= torqueStrength
+        }
+
+        if(leftRight < 0.05){
+            impulse.x -= impulseStrength
+            torque.z += torqueStrength
         }
 
         // if(forward)
