@@ -113,8 +113,8 @@ export default function Player()
             torque.z += torqueStrength
         }
 
-        body.current.applyImpulse(impulse)
-        body.current.applyTorqueImpulse(torque)
+        body?.current?.applyImpulse(impulse)
+        body?.current?.applyTorqueImpulse(torque)
 
         const bodyPosition = body.current.translation()
         const cameraPosition = new THREE.Vector3()
