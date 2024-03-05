@@ -1,4 +1,4 @@
-import { Grid } from "@react-three/drei";
+import { Grid, SoftShadows } from "@react-three/drei";
 import { RigidBody } from "@react-three/rapier";
 import Level3 from "./Levels/Level3";
 

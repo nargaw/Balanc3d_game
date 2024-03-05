@@ -13,7 +13,9 @@ export default function Player()
     const level = useGame((state) => state.level)
     const restart = useGame((state) => state.restart)
     const phase = useGame((state) => state.phase)
-    console.log(phase)
+    const matcapDark = new THREE.TextureLoader().load('./Matcaps/matcapBlackShiny.png')
+    const matcapLight = new THREE.TextureLoader().load('./Matcaps/matcapWhiteShiny.png')
+    console.log(matcapDark)
 
     const [ subscribeKeys, getKeys ] = useKeyboardControls()
     const [ smoothedCameraPosition ] = useState(() => new THREE.Vector3(10, 10, 10))
@@ -68,8 +70,8 @@ export default function Player()
         const impulse = {x: 0., y: 0, z: 0}
         const torque = {x: 0, y: 0, z: 0}
 
-        const impulseStrength = 0.6 * delta * 2
-        const torqueStrength = 0.2 * delta * 2
+        const impulseStrength = 0.6 * delta * 1.25
+        const torqueStrength = 0.2 * delta * 1.25
         
         if(upDown > 0.05){
             impulse.z -= impulseStrength * upDown
@@ -158,9 +160,10 @@ export default function Player()
             linearDamping={ 0.5 }
             angularDamping={ 0.5 }
         >
-            <mesh ref={mesh} position={[0, 0, 0]}>
-                <icosahedronGeometry args={[0.3, 1]} />
-                <meshBasicMaterial color='green' />
+            <mesh castShadow ref={mesh} position={[0, 0, 0]}>
+                <icosahedronGeometry args={[0.3, 10]} />
+                {/* <meshStandardMaterial color='#0094C6' /> */}
+                <meshMatcapMaterial matcap={matcapDark} />
             </mesh>
         </RigidBody>
     </>
