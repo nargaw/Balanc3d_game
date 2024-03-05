@@ -14,8 +14,6 @@ export default function Player()
     const restart = useGame((state) => state.restart)
     const phase = useGame((state) => state.phase)
     const matcapDark = new THREE.TextureLoader().load('./Matcaps/matcapBlackShiny.png')
-    const matcapLight = new THREE.TextureLoader().load('./Matcaps/matcapWhiteShiny.png')
-    console.log(matcapDark)
 
     const [ subscribeKeys, getKeys ] = useKeyboardControls()
     const [ smoothedCameraPosition ] = useState(() => new THREE.Vector3(10, 10, 10))
@@ -31,8 +29,6 @@ export default function Player()
         body.current.setAngvel({ x: 0, y: 0, z: 0 })
     }
 
-    
-
     /**
      * device orientation
      */
@@ -40,8 +36,8 @@ export default function Player()
     let leftRight
 
     const handleOrientation = (e) => {
-        upDown = -(e.beta / 180) * 2
-        leftRight = (e.gamma /90 / 2) * 2
+        upDown = -(e.beta / 180) * 4
+        leftRight = (e.gamma /90 / 2) * 4
     }
 
     window.addEventListener('deviceorientation', handleOrientation, true)
@@ -70,8 +66,8 @@ export default function Player()
         const impulse = {x: 0., y: 0, z: 0}
         const torque = {x: 0, y: 0, z: 0}
 
-        const impulseStrength = 0.6 * delta * 1.25
-        const torqueStrength = 0.2 * delta * 1.25
+        const impulseStrength = 0.6 * delta
+        const torqueStrength = 0.2 * delta 
         
         if(upDown > 0.05){
             impulse.z -= impulseStrength * upDown
