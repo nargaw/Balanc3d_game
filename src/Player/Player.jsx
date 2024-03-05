@@ -40,8 +40,8 @@ export default function Player()
     const handleOrientation = (e) => {
         upDown = -(e.beta / 180) * 2
         leftRight = (e.gamma /90 / 2) * 2
-        console.log('updown: ' + upDown)
-        console.log('leftRight: ' + leftRight)
+        // console.log('updown: ' + upDown)
+        // console.log('leftRight: ' + leftRight)
     }
 
     window.addEventListener('deviceorientation', handleOrientation, true)
@@ -74,15 +74,17 @@ export default function Player()
         // const torqueStrength = 0.2 * delta
         const impulseStrength = 0.6 * delta 
         const torqueStrength = 0.2 * delta
+
+        console.log(impulse.z, torque.x)
         
         if(upDown > 0){
-            impulse.z -= impulseStrength * upDown
-            torque.x -= torqueStrength * upDown
+            impulse.z -= impulseStrength
+            torque.x -= torqueStrength
         }
 
         if(upDown < 0){
-            impulse.z += impulseStrength * upDown
-            torque.x += torqueStrength * upDown
+            impulse.z += impulseStrength 
+            torque.x += torqueStrength 
         }
 
         // if(forward)
