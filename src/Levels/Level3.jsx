@@ -1,8 +1,14 @@
 import { RigidBody } from "@react-three/rapier"
+import StartText from "./StartText"
 
 export default function Level3()
 {
     return <>
+
+        //start text
+        <StartText />
+
+        //walls
         <RigidBody type="fixed" friction={1}>
             <mesh castShadow position={[-5.5, 0.5, 4]}>
                 <boxGeometry args={[6, 1, 1]}/>
@@ -74,6 +80,7 @@ export default function Level3()
             </mesh>
         </RigidBody>
 
+        //floor
         <RigidBody type="fixed" friction={1}>
             <mesh receiveShadow position={[-5.5, 0, 0.5]}>
                 <boxGeometry args={[4, 0.1, 6]}/>
