@@ -1,12 +1,16 @@
 import { RigidBody } from "@react-three/rapier"
 import StartText from "./StartText"
+import FinishText from "./FinishText"
 
 export default function Level3()
 {
     return <>
 
         //start text
-        <StartText />
+        <StartText position={[-5.45, 1, 4.0]} />
+
+        //finish text
+        <FinishText position={[ -0.5, 1, -22.0]} />
 
         //walls
         <RigidBody type="fixed" friction={1}>

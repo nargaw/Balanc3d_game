@@ -15,7 +15,6 @@ root.render(
                 { name: 'backward', keys: [ 'ArrowDown', 'KeyS' ] },
                 { name: 'leftward', keys: [ 'ArrowLeft', 'KeyA' ] },
                 { name: 'rightward', keys: [ 'ArrowRight', 'KeyD' ] },
-                { name: 'jump', keys: [ 'Space' ] },
             ] }
         >
             <Canvas shadows camera={{fov: 50, position: [0, 0, 0]}} >
@@ -28,6 +27,5 @@ root.render(
                 <Experience />
             </Canvas>
         </KeyboardControls>
-        
     </>
 )
