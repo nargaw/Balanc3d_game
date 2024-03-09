@@ -13,6 +13,7 @@ export default function Player()
     const level = useGame((state) => state.level)
     const restart = useGame((state) => state.restart)
     const phase = useGame((state) => state.phase)
+    console.log(phase)
     const matcapDark = new THREE.TextureLoader().load('./Matcaps/matcapBlackShiny.png')
 
     const [ subscribeKeys, getKeys ] = useKeyboardControls()
@@ -69,6 +70,7 @@ export default function Player()
         const impulseStrength = 0.6 * delta
         const torqueStrength = 0.2 * delta 
         
+        //device orientation
         if(upDown > 0.05){
             impulse.z -= impulseStrength * upDown
             torque.x -= torqueStrength * upDown
@@ -89,6 +91,7 @@ export default function Player()
             torque.z += torqueStrength * -leftRight
         }
 
+        //Keyboard
         if(forward)
         {
             impulse.z -= impulseStrength

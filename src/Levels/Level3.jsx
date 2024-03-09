@@ -88,11 +88,11 @@ export default function Level3()
         <RigidBody type="fixed" friction={1}>
             <mesh receiveShadow position={[-5.5, 0, 0.5]}>
                 <boxGeometry args={[4, 0.1, 6]}/>
-                <meshStandardMaterial color='#000022' />
+                <meshStandardMaterial color='#00ff22' />
             </mesh>
             <mesh receiveShadow position={[-1.5, 0, -4.]}>
                 <boxGeometry args={[4, 0.1, 9]}/>
-                <meshStandardMaterial color='#000022' />
+                <meshStandardMaterial color='#ff0022' />
             </mesh>
             <mesh receiveShadow position={[-6., 0, -7.]}>
                 <boxGeometry args={[5, 0.1, 3]}/>
