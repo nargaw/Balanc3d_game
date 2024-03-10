@@ -1,4 +1,3 @@
-import { Light } from "three"
 import Environment from "./Environment"
 import Lights from "./Lights"
 import { Physics } from "@react-three/rapier"
@@ -9,7 +8,7 @@ export default function Experience()
     return <>
         <Physics>
             <Environment /> 
-            <Player />     
+            {/* <Player />      */}
         </Physics>
         <Lights />  
     </>

@@ -7,23 +7,23 @@ export default function Level3()
     return <>
 
         //start text
-        <StartText position={[-5.45, 1, 4.0]} />
+        <StartText position={[-5.45, 1, 8.0]} />
 
         //finish text
         <FinishText position={[ -0.5, 1, -22.0]} />
 
         //walls
         <RigidBody type="fixed" friction={1}>
-            <mesh castShadow position={[-5.5, 0.5, 4]}>
+            <mesh castShadow position={[-5.5, 0.5, 8]}>
                 <boxGeometry args={[6, 1, 1]}/>
                 <meshStandardMaterial color='#040F16' />
             </mesh>
-            <mesh castShadow position={[-8, 0.5, 0]}>
-                <boxGeometry args={[1, 1, 7]}/>
+            <mesh castShadow position={[-8, 0.5, 2.0]}>
+                <boxGeometry args={[1, 1, 11]}/>
                 <meshStandardMaterial color='#040F16' />
             </mesh>
-            <mesh castShadow position={[-3, 0.5, 2]}>
-                <boxGeometry args={[1, 1, 3]}/>
+            <mesh castShadow position={[-3, 0.5, 4]}>
+                <boxGeometry args={[1, 1, 7]}/>
                 <meshStandardMaterial color='#040F16' />
             </mesh>
             <mesh castShadow position={[-0.5, 0.5, 1]}>
@@ -86,13 +86,13 @@ export default function Level3()
 
         //floor
         <RigidBody type="fixed" friction={1}>
-            <mesh receiveShadow position={[-5.5, 0, 0.5]}>
-                <boxGeometry args={[4, 0.1, 6]}/>
-                <meshStandardMaterial color='#00ff22' />
+            <mesh receiveShadow position={[-5.5, 0, 1]}>
+                <boxGeometry args={[4, 0.1, 7]}/>
+                <meshStandardMaterial color='#000022' />
             </mesh>
             <mesh receiveShadow position={[-1.5, 0, -4.]}>
                 <boxGeometry args={[4, 0.1, 9]}/>
-                <meshStandardMaterial color='#ff0022' />
+                <meshStandardMaterial color='#000022' />
             </mesh>
             <mesh receiveShadow position={[-6., 0, -7.]}>
                 <boxGeometry args={[5, 0.1, 3]}/>
@@ -106,9 +106,17 @@ export default function Level3()
                 <boxGeometry args={[6, 0.1, 2]}/>
                 <meshStandardMaterial color='#000022' />
             </mesh>
+
+            //end
             <mesh receiveShadow position={[-0.5, 0, -18.5]}>
                 <boxGeometry args={[4, 0.1, 6]}/>
-                <meshStandardMaterial color='#000022' />
+                <meshBasicMaterial color='red' />
+            </mesh>
+
+            //start
+            <mesh position={[-5.5, 0, 6.]}>
+                <boxGeometry args={[4, 0.1, 3]} />
+                <meshBasicMaterial color={'green'}/>
             </mesh>
         </RigidBody>
     </>
