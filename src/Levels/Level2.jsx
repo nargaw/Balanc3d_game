@@ -4,9 +4,46 @@ import FinishText from "./FinishText"
 
 export default function Level2()
 {
-    return <>
-        <RigidBody type="fixed" friction={1}>
 
+    const factor = -1
+    const spacingValue = 25
+
+    return <>
+        //start text
+        <StartText position={[-0.5 + (factor * spacingValue), 1, 8.0]} />
+
+        //finish text
+        <FinishText position={[ -0.5 + (factor * spacingValue), 1, -19.0]} />
+
+        <RigidBody type="fixed" friction={1}>
+        <mesh position={[-25.5, 0.5, 8]}>
+                <boxGeometry args={[4, 1, 1]}/>
+                <meshStandardMaterial color='#040F16' />
+            </mesh>
+            <mesh position={[-28., 0.5, 2.]}>
+                <boxGeometry args={[1, 1, 13]}/>
+                <meshStandardMaterial color='#040F16' />
+            </mesh>
+            <mesh position={[-23., 0.5, 6.5]}>
+                <boxGeometry args={[1, 1, 4]}/>
+                <meshStandardMaterial color='#040F16' />
+            </mesh>
+
+            <mesh position={[-28., 0.5, -17.5]}>
+                <boxGeometry args={[1, 1, 4]}/>
+                <meshStandardMaterial color='#040F16' />
+            </mesh>
+
+            <mesh position={[-23., 0.5, -12.5]}>
+                <boxGeometry args={[1, 1, 14]}/>
+                <meshStandardMaterial color='#040F16' />
+            </mesh>
+
+
+            <mesh position={[-25.5, 0.5, -19]}>
+                <boxGeometry args={[4, 1, 1]}/>
+                <meshStandardMaterial color='#040F16' />
+            </mesh>
         </RigidBody>
 
 
@@ -14,7 +51,7 @@ export default function Level2()
         <RigidBody type="fixed" friction={1}>
             <mesh position={[-25.5, 0, -5.5]}>
                 <boxGeometry args={[4, 0.1, 20]} />
-                <meshNormalMaterial />
+                <meshStandardMaterial color='#000022' />
             </mesh>
             <mesh position={[-25.5, 0, 6.]}>
                 <boxGeometry args={[4, 0.1, 3]} />

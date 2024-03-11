@@ -4,13 +4,16 @@ import FinishText from "./FinishText"
 
 export default function Level3()
 {
+    const factor = 0
+    const spacingValue = 25
+
     return <>
 
         //start text
-        <StartText position={[-5.45, 1, 8.0]} />
+        <StartText position={[-5.45 + (factor * spacingValue), 1, 8.0]} />
 
         //finish text
-        <FinishText position={[ -0.5, 1, -22.0]} />
+        <FinishText position={[ -0.5 + (factor * spacingValue), 1, -19.0]} />
 
         //walls
         <RigidBody type="fixed" friction={1}>
@@ -70,15 +73,15 @@ export default function Level3()
                 <boxGeometry args={[1, 1, 2]}/>
                 <meshStandardMaterial color='#040F16' />
             </mesh>
-            <mesh castShadow position={[2, 0.5, -18.5]}>
-                <boxGeometry args={[1, 1, 6]}/>
+            <mesh castShadow position={[2, 0.5, -17.]}>
+                <boxGeometry args={[1, 1, 3]}/>
                 <meshStandardMaterial color='#040F16' />
             </mesh>
-            <mesh castShadow position={[-3, 0.5, -19.]}>
-                <boxGeometry args={[1, 1, 5]}/>
+            <mesh castShadow position={[-3, 0.5, -17.5]}>
+                <boxGeometry args={[1, 1, 2]}/>
                 <meshStandardMaterial color='#040F16' />
             </mesh>
-            <mesh castShadow position={[-0.5, 0.5, -22.]}>
+            <mesh castShadow position={[-0.5, 0.5, -19.]}>
                 <boxGeometry args={[6, 1, 1]}/>
                 <meshStandardMaterial color='#040F16' />
             </mesh>
@@ -108,8 +111,8 @@ export default function Level3()
             </mesh>
 
             //end
-            <mesh receiveShadow position={[-0.5, 0, -18.5]}>
-                <boxGeometry args={[4, 0.1, 6]}/>
+            <mesh receiveShadow position={[-0.5, 0, -17.]}>
+                <boxGeometry args={[4, 0.1, 3]}/>
                 <meshBasicMaterial color='red' />
             </mesh>
 

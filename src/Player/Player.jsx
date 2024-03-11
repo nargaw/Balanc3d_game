@@ -13,8 +13,21 @@ export default function Player()
     const level = useGame((state) => state.level)
     const restart = useGame((state) => state.restart)
     const phase = useGame((state) => state.phase)
-    console.log(phase)
+    const levelUp = useGame((state) => state.levelUp)
     const matcapDark = new THREE.TextureLoader().load('./Matcaps/matcapBlackShiny.png')
+    console.log(phase, level)
+
+
+    const factor = 25
+    const maxLevel = 3
+
+    const startPositions = {
+        1: {x: -50.5, y: 1, z: 6 },
+        2: {x: -25.5, y: 1, z: 6 },
+        3: {x: -5.5, y: 1, z: 6 },
+    }
+
+    // console.log(startPositions[level].z)
 
     const [ subscribeKeys, getKeys ] = useKeyboardControls()
     const [ smoothedCameraPosition ] = useState(() => new THREE.Vector3(10, 10, 10))
@@ -23,9 +36,9 @@ export default function Player()
     const body = useRef()
     const mesh = useRef()
 
-    const reset = () => 
+    const reset = (currentLevel) => 
     {
-        body.current.setTranslation({ x: -5.5, y: 1, z: 2 })
+        body.current.setTranslation(startPositions[currentLevel])
         body.current.setLinvel({ x: 0, y: 0, z: 0 })
         body.current.setAngvel({ x: 0, y: 0, z: 0 })
     }
@@ -50,7 +63,8 @@ export default function Player()
             (value) =>
             {
                 if(value === 'ready')
-                    reset()
+                    reset(level)
+                    console.log(level)
             }
         )
 
@@ -116,43 +130,56 @@ export default function Player()
             torque.z += torqueStrength
         }
 
-        body?.current?.applyImpulse(impulse)
-        body?.current?.applyTorqueImpulse(torque)
+        if(body.current){
+            body?.current?.applyImpulse(impulse)
+            body?.current?.applyTorqueImpulse(torque)
 
-        const bodyPosition = body.current.translation()
-        const cameraPosition = new THREE.Vector3()
-        cameraPosition.copy(bodyPosition)
-        cameraPosition.z += 5.25
-        cameraPosition.y += 20.65
-    
-        const cameraTarget = new THREE.Vector3()
-        cameraTarget.copy(bodyPosition)
-        cameraTarget.y += 0.25
-
-        smoothedCameraPosition.lerp(cameraPosition, 5 * delta)
-        smoothedCameraTarget.lerp(cameraTarget, 5 * delta)
-
-        state.camera.position.copy(smoothedCameraPosition)
-        state.camera.lookAt(smoothedCameraTarget)
+            const bodyPosition = body.current.translation()
+            const cameraPosition = new THREE.Vector3()
+            cameraPosition.copy(bodyPosition)
+            cameraPosition.z += 5.25
+            cameraPosition.y += 20.65
         
+            const cameraTarget = new THREE.Vector3()
+            cameraTarget.copy(bodyPosition)
+            cameraTarget.y += 0.25
 
-        if(bodyPosition.x !== -5.5 || bodyPosition.z !== 2){
-            start()
+            smoothedCameraPosition.lerp(cameraPosition, 2 * delta)
+            smoothedCameraTarget.lerp(cameraTarget, 2 * delta)
+
+            state.camera.position.copy(smoothedCameraPosition)
+            state.camera.lookAt(smoothedCameraTarget)
+            
+
+            if(bodyPosition.z < 4.5){
+                start()
+            }
+
+            if(bodyPosition.z < -15.5){
+                end()
+                if(level < maxLevel)levelUp()
+                body.current.setLinvel({ x: 0, y: 0, z: 0 })
+                body.current.setAngvel({ x: 0, y: 0, z: 0 })
+            }
+            if(bodyPosition.y < -4){
+                restart()
+            }
         }
 
-        if(bodyPosition.z < -15.5){
-            end()
-        }
-        if(bodyPosition.y < -4){
-            restart()
-        }
+        
     })
 
     return <>
         <RigidBody
             ref={body} 
             colliders="ball" 
-            position={[-5.5, 1, 2]}
+            position={
+                [
+                    startPositions[level].x,
+                    startPositions[level].y,
+                    startPositions[level].z,
+                ]
+            }
             canSleep={false}
             restitution={ 0.2 }
             friction={ 1 } 

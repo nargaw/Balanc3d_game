@@ -20,7 +20,7 @@ root.render(
             <Canvas shadows camera={{fov: 50, position: [0, 0, 0]}} >
                 <OrbitControls
                     makeDefault 
-                    maxDistance={30}
+                    maxDistance={50}
                     minDistance={5}
                     maxPolarAngle={Math.PI * 0.45}
                 />

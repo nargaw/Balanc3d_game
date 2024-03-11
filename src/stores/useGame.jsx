@@ -4,7 +4,9 @@ import { subscribeWithSelector } from 'zustand/middleware'
 export default create(subscribeWithSelector((set) => {
     return {
 
-        level: 3,
+        level: 1,
+
+        maxLevel: 3,
 
         phase: 'ready',
 
@@ -45,6 +47,17 @@ export default create(subscribeWithSelector((set) => {
                 }
 
                 return {}
+            })
+        },
+
+        levelUp: () =>
+        {
+            set((state) => 
+            {
+                if(state.phase === 'ended')
+                {
+                    return {level: state.level + 1}
+                }
             })
         }
     }
