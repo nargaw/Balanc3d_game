@@ -27,7 +27,7 @@ export default create(subscribeWithSelector((set) => {
         {
             set((state) =>
             {
-                if(state.phase === 'playing' || state.phase === 'ended')
+                if(state.phase === 'playing')
                 {
                     return {phase: 'ready'}
                 }
@@ -56,7 +56,8 @@ export default create(subscribeWithSelector((set) => {
             {
                 if(state.phase === 'ended')
                 {
-                    return {level: state.level + 1}
+                    return {level: state.level + 1,
+                            phase: 'ready'}
                 }
             })
         }
