@@ -65,8 +65,8 @@ export default function Level3()
                 <boxGeometry args={[2, 1, 1]}/>
                 <meshStandardMaterial color='#040F16' />
             </mesh>
-            <mesh castShadow position={[-8.5, 0.5, -16]}>
-                <boxGeometry args={[2, 1, 1]}/>
+            <mesh castShadow position={[-7., 0.5, -16]}>
+                <boxGeometry args={[5, 1, 1]}/>
                 <meshStandardMaterial color='#040F16' />
             </mesh>
             <mesh castShadow position={[-9, 0.5, -14.5]}>

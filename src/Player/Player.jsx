@@ -72,7 +72,7 @@ export default function Player()
         {
             unsubscribeReset()
         }
-    }, [])
+    }, [level])
 
     useFrame((state, delta) => 
     {
