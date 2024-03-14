@@ -156,10 +156,15 @@ export default function Player()
             }
 
             if(bodyPosition.z < -15.5){
-                end()
-                if(level < maxLevel)levelUp()
+                if(level < maxLevel) {
+                    end()
+                    levelUp()
+                } else {
+                    body.current.setTranslation(startPositions[level])
+                }
                 body.current.setLinvel({ x: 0, y: 0, z: 0 })
                 body.current.setAngvel({ x: 0, y: 0, z: 0 })
+
             }
             if(bodyPosition.y < -4){
                 restart()
