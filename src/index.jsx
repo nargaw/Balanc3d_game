@@ -17,7 +17,7 @@ root.render(
                 { name: 'rightward', keys: [ 'ArrowRight', 'KeyD' ] },
             ] }
         >
-            <Canvas shadows camera={{fov: 50, position: [0, 0, 0]}} >
+            <Canvas shadows camera={{fov: 50, position: [0, 50, 0]}} >
                 <OrbitControls
                     makeDefault 
                     maxDistance={50}

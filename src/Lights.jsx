@@ -8,13 +8,13 @@ export default function Lights(){
 
     const directionalLightRef = useRef()
     const level = useGame(state => state.level)
-    console.log(level)
+    // console.log(level)
 
     useHelper(directionalLightRef, THREE.DirectionalLightHelper, 1)
 
     useEffect(() => {
-        directionalLightRef.current.position.x = 10 + (25 * level) - 50
-        directionalLightRef.current.target.position.x = 10 + (25 * level) -50
+        directionalLightRef.current.position.x = 10 + (25 * level - 1) 
+        directionalLightRef.current.target.position.x = 10 + (25 * level -1)
     }, [level])
 
     return (

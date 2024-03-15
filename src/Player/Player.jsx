@@ -15,17 +15,17 @@ export default function Player()
     const phase = useGame((state) => state.phase)
     const levelUp = useGame((state) => state.levelUp)
     const matcapDark = new THREE.TextureLoader().load('./Matcaps/matcapBlackShiny.png')
-    console.log(phase, level)
-
+    // console.log(phase, level)
 
     const factor = 25
-    const maxLevel = 4
+    const maxLevel = 5
 
     const startPositions = {
         1: {x: -50.5, y: 1, z: 6 },
         2: {x: -25.5, y: 1, z: 6 },
         3: {x: -5.5, y: 1, z: 6 },
         4: {x: 24.5, y: 1, z: 6 },
+        5: {x: 49.5, y: 1, z: 6 },
     }
 
     // console.log(startPositions[level].z)
@@ -65,7 +65,7 @@ export default function Player()
             {
                 if(value === 'ready')
                     reset(level)
-                    console.log(level)
+                    // console.log(level)
             }
         )
 
