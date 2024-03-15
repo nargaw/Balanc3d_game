@@ -3,6 +3,7 @@ import { Grid } from "@react-three/drei";
 import Level1 from "./Levels/Level1";
 import Level2 from "./Levels/Level2";
 import Level3 from "./Levels/Level3";
+import Level4 from './Levels/Level4'
 
 export default function Environment(){
 
@@ -18,5 +19,6 @@ export default function Environment(){
         <Level1 />
         <Level2 />
         <Level3 />
+        <Level4 />
     </>
 }

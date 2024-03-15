@@ -19,12 +19,13 @@ export default function Player()
 
 
     const factor = 25
-    const maxLevel = 3
+    const maxLevel = 4
 
     const startPositions = {
         1: {x: -50.5, y: 1, z: 6 },
         2: {x: -25.5, y: 1, z: 6 },
         3: {x: -5.5, y: 1, z: 6 },
+        4: {x: 24.5, y: 1, z: 6 },
     }
 
     // console.log(startPositions[level].z)
