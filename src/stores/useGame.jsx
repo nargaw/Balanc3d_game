@@ -6,9 +6,22 @@ export default create(subscribeWithSelector((set) => {
 
         level: 1,
 
+        lossCount: 0,
+
         maxLevel: 3,
 
         phase: 'ready',
+
+        died: () => 
+        {
+            set((state) => 
+            {
+                if(state.phase === 'playing' && state.lossCount < 3)
+                {
+                    return {lossCount: state.lossCount + 1}
+                }
+            })
+        },
 
         start: () =>
         {
@@ -59,6 +72,24 @@ export default create(subscribeWithSelector((set) => {
                     return {level: state.level + 1,
                             phase: 'ready'}
                 }
+
+                return {}
+            })
+        },
+
+        gameOver: () => 
+        {
+            set((state) =>
+            {
+                if(state.lossCount === 3)
+                {
+                    return {
+                        level: 1,
+                        lossCount: 0
+                    }
+                }
+
+                return {}
             })
         }
     }

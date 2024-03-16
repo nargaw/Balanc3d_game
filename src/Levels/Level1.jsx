@@ -58,13 +58,13 @@ export default function Level1()
             //start
             <mesh position={[-50.5, 0, 6.]}>
                 <boxGeometry args={[4, 0.1, 3]} />
-                <meshBasicMaterial color={'green'}/>
+                <meshToonMaterial color={'green'}/>
             </mesh>
 
             //finish
             <mesh position={[-50.5, 0, -17.]}>
                 <boxGeometry args={[4, 0.1, 3]} />
-                <meshBasicMaterial color={'red'}/>
+                <meshToonMaterial color={'red'}/>
             </mesh>
         </RigidBody>
     </>

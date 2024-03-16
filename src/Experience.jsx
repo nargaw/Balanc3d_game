@@ -6,7 +6,7 @@ import Player from "./Player/player.jsx"
 export default function Experience()
 {
     return <>
-        <Physics debug>
+        <Physics>
             <Environment /> 
             <Player />     
         </Physics>

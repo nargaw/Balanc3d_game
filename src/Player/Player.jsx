@@ -14,6 +14,10 @@ export default function Player()
     const restart = useGame((state) => state.restart)
     const phase = useGame((state) => state.phase)
     const levelUp = useGame((state) => state.levelUp)
+    const died = useGame((state) => state.died)
+    const gameOver = useGame((state) => state.gameOver)
+    const lossCount = useGame((state) => state.lossCount)
+    
     const matcapDark = new THREE.TextureLoader().load('./Matcaps/matcapBlackShiny.png')
     // console.log(phase, level)
 
@@ -26,9 +30,7 @@ export default function Player()
         3: {x: -5.5, y: 1, z: 6 },
         4: {x: 24.5, y: 1, z: 6 },
         5: {x: 49.5, y: 1, z: 6 },
-    }
-
-    // console.log(startPositions[level].z)
+    } 
 
     const [ subscribeKeys, getKeys ] = useKeyboardControls()
     const [ smoothedCameraPosition ] = useState(() => new THREE.Vector3(10, 10, 10))
@@ -168,6 +170,8 @@ export default function Player()
 
             }
             if(bodyPosition.y < -4){
+                died()
+                gameOver()
                 restart()
             }
         }
@@ -193,9 +197,9 @@ export default function Player()
             angularDamping={ 0.5 }
         >
             <mesh castShadow ref={mesh} position={[0, 0, 0]}>
-                <icosahedronGeometry args={[0.3, 10]} />
-                {/* <meshStandardMaterial color='#0094C6' /> */}
-                <meshMatcapMaterial matcap={matcapDark} />
+                <icosahedronGeometry args={[0.3, 1]} />
+                <meshStandardMaterial color='#0094C6' metalness={0.9} roughness={0.1} wireframe />
+                {/* <meshMatcapMaterial matcap={matcapDark} /> */}
             </mesh>
         </RigidBody>
     </>
