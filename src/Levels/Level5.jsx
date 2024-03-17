@@ -4,7 +4,7 @@ import FinishText from "./FinishText"
 import { useRef, useState } from "react"
 import { useFrame } from "@react-three/fiber"
 
-export default function Level5()
+export default function Level5({wallColor, floorColor, startFloorColor, finishFloorColor, movingPlatformColor, startTextColor, finishTextColor})
 {
     const movingPlatform = useRef()
     const movingPlatformTwo = useRef()
@@ -29,129 +29,129 @@ export default function Level5()
     })
 
     return <>
-        <StartText position={[-0.5 + (factor * spacingValue), 1, 8.0]} />
+        <StartText position={[-0.5 + (factor * spacingValue), 1, 8.0]} startTextColor={startTextColor}/>
 
         //finish text
-        <FinishText position={[ -1. + (factor * spacingValue), 1, -19.0]} />
+        <FinishText position={[ -1. + (factor * spacingValue), 1, -19.0]} finishTextColor={finishTextColor}/>
 
         <RigidBody type="fixed" friction={1}>
-            <mesh position={[-0.5 + (factor * spacingValue), 0.5, 8]}>
+            <mesh castShadow position={[-0.5 + (factor * spacingValue), 0.5, 8]}>
                 <boxGeometry args={[4, 1, 1]}/>
-                <meshStandardMaterial color='#040F16' />
+                <meshToonMaterial color={wallColor} />
             </mesh>
-            <mesh position={[2. + (factor * spacingValue), 0.5, 3]}>
+            <mesh castShadow position={[2. + (factor * spacingValue), 0.5, 3]}>
                 <boxGeometry args={[1, 1, 3]}/>
-                <meshStandardMaterial color='#040F16' />
+                <meshToonMaterial color={wallColor} />
             </mesh>
-            <mesh position={[-1.5 + (factor * spacingValue), 0.5, 2]}>
+            <mesh castShadow position={[-1.5 + (factor * spacingValue), 0.5, 2]}>
                 <boxGeometry args={[6, 1, 1]}/>
-                <meshStandardMaterial color='#040F16' />
+                <meshToonMaterial color={wallColor} />
             </mesh>
-            <mesh position={[5. + (factor * spacingValue), 0.5, -2.5]}>
+            <mesh castShadow position={[5. + (factor * spacingValue), 0.5, -2.5]}>
                 <boxGeometry args={[1, 1, 2]}/>
-                <meshStandardMaterial color='#040F16' />
+                <meshToonMaterial color={wallColor} />
             </mesh>
-            <mesh position={[4.5 + (factor * spacingValue), 0.5, -1.]}>
+            <mesh castShadow position={[4.5 + (factor * spacingValue), 0.5, -1.]}>
                 <boxGeometry args={[2, 1, 1]}/>
-                <meshStandardMaterial color='#040F16' />
+                <meshToonMaterial color={wallColor} />
             </mesh>
-            <mesh position={[5. + (factor * spacingValue), 0.5, -10.5]}>
+            <mesh castShadow position={[5. + (factor * spacingValue), 0.5, -10.5]}>
                 <boxGeometry args={[1, 1, 2]}/>
-                <meshStandardMaterial color='#040F16' />
+                <meshToonMaterial color={wallColor} />
             </mesh>
-            <mesh position={[4. + (factor * spacingValue), 0.5, -11]}>
+            <mesh castShadow position={[4. + (factor * spacingValue), 0.5, -11]}>
                 <boxGeometry args={[1, 1, 1]}/>
-                <meshStandardMaterial color='#040F16' />
+                <meshToonMaterial color={wallColor} />
             </mesh>
             
-            <mesh position={[-3. + (factor * spacingValue), 0.5, 6.5]}>
+            <mesh castShadow position={[-3. + (factor * spacingValue), 0.5, 6.5]}>
                 <boxGeometry args={[1, 1, 4]}/>
-                <meshStandardMaterial color='#040F16' />
+                <meshToonMaterial color={wallColor} />
             </mesh>
-            <mesh position={[2. + (factor * spacingValue), 0.5, 6.5]}>
+            <mesh castShadow position={[2. + (factor * spacingValue), 0.5, 6.5]}>
                 <boxGeometry args={[1, 1, 4]}/>
-                <meshStandardMaterial color='#040F16' />
+                <meshToonMaterial color={wallColor} />
             </mesh>
             
 
-            <mesh position={[1. + (factor * spacingValue), 0.5, -14]}>
+            <mesh castShadow position={[1. + (factor * spacingValue), 0.5, -14]}>
                 <boxGeometry args={[1, 1, 3]}/>
-                <meshStandardMaterial color='#040F16' />
+                <meshToonMaterial color={wallColor} />
             </mesh>
-            <mesh position={[-3. + (factor * spacingValue), 0.5, -10.5]}>
+            <mesh castShadow position={[-3. + (factor * spacingValue), 0.5, -10.5]}>
                 <boxGeometry args={[1, 1, 4]}/>
-                <meshStandardMaterial color='#040F16' />
+                <meshToonMaterial color={wallColor} />
             </mesh>
 
-            <mesh position={[-3. + (factor * spacingValue), 0.5, -17.5]}>
+            <mesh castShadow position={[-3. + (factor * spacingValue), 0.5, -17.5]}>
                 <boxGeometry args={[1, 1, 4]}/>
-                <meshStandardMaterial color='#040F16' />
+                <meshToonMaterial color={wallColor} />
             </mesh>
 
-            <mesh position={[1. + (factor * spacingValue), 0.5, -17.5]}>
+            <mesh castShadow position={[1. + (factor * spacingValue), 0.5, -17.5]}>
                 <boxGeometry args={[1, 1, 4]}/>
-                <meshStandardMaterial color='#040F16' />
+                <meshToonMaterial color={wallColor} />
             </mesh>
 
 
-            <mesh position={[-1. + (factor * spacingValue), 0.5, -19]}>
+            <mesh castShadow position={[-1. + (factor * spacingValue), 0.5, -19]}>
                 <boxGeometry args={[3, 1, 1]}/>
-                <meshStandardMaterial color='#040F16' />
+                <meshToonMaterial color={wallColor} />
             </mesh>
         </RigidBody>
 
         //floor
         <RigidBody type="fixed" friction={1}>
-            <mesh position={[-3.5 + (factor * spacingValue) , 0, 3.5]}>
+            <mesh receiveShadow position={[-3.5 + (factor * spacingValue) , 0, 3.5]}>
                 <boxGeometry args={[10, 0.1, 2]} />
-                <meshStandardMaterial color='#000022' />
+                <meshToonMaterial color={floorColor} />
             </mesh>
-            <mesh position={[-7. + (factor * spacingValue) , 0, 0.5]}>
+            <mesh receiveShadow position={[-7. + (factor * spacingValue) , 0, 0.5]}>
                 <boxGeometry args={[3, 0.1, 4]} />
-                <meshStandardMaterial color='#000022' />
+                <meshToonMaterial color={floorColor} />
             </mesh>
-            <mesh position={[-6.5 + (factor * spacingValue) , 0, -3.]}>
+            <mesh receiveShadow position={[-6.5 + (factor * spacingValue) , 0, -3.]}>
                 <boxGeometry args={[4, 0.1, 3]} />
-                <meshStandardMaterial color='#000022' />
+                <meshToonMaterial color={floorColor} />
             </mesh>
-            <mesh position={[0.5 + (factor * spacingValue) , 0, -3.]}>
+            <mesh receiveShadow position={[0.5 + (factor * spacingValue) , 0, -3.]}>
                 <boxGeometry args={[4, 0.1, 3]} />
-                <meshStandardMaterial color='#000022' />
+                <meshToonMaterial color={floorColor} />
             </mesh>
-            <mesh position={[3.5 + (factor * spacingValue) , 0, -4.]}>
+            <mesh receiveShadow position={[3.5 + (factor * spacingValue) , 0, -4.]}>
                 <boxGeometry args={[2, 0.1, 5]} />
-                <meshStandardMaterial color='#000022' />
+                <meshToonMaterial color={floorColor} />
             </mesh>
-            <mesh position={[2.5 + (factor * spacingValue) , 0, -9.5]}>
+            <mesh receiveShadow position={[2.5 + (factor * spacingValue) , 0, -9.5]}>
                 <boxGeometry args={[4, 0.1, 2]} />
-                <meshStandardMaterial color='#000022' />
+                <meshToonMaterial color={floorColor} />
             </mesh>
-            <mesh position={[-1 + (factor * spacingValue) , 0, -12.]}>
+            <mesh receiveShadow position={[-1 + (factor * spacingValue) , 0, -12.]}>
                 <boxGeometry args={[3, 0.1, 7]} />
-                <meshStandardMaterial color='#000022' />
+                <meshToonMaterial color={floorColor} />
             </mesh>
 
-            <mesh position={[-0.5 + (factor * spacingValue), 0, 6.]}>
+            <mesh receiveShadow position={[-0.5 + (factor * spacingValue), 0, 6.]}>
                 <boxGeometry args={[4, 0.1, 3]} />
-                <meshBasicMaterial color={'green'}/>
+                <meshToonMaterial color={startFloorColor}/>
             </mesh>
-            <mesh position={[-0.5 + (factor * spacingValue), 0, -17.]}>
+            <mesh receiveShadow position={[-0.5 + (factor * spacingValue), 0, -17.]}>
                 <boxGeometry args={[4, 0.1, 3]} />
-                <meshBasicMaterial color={'red'}/>
+                <meshToonMaterial color={finishFloorColor}/>
             </mesh>
         </RigidBody>
 
         //moving
         <RigidBody ref={movingPlatform} type="kinematicPosition">
-            <mesh>
+            <mesh receiveShadow>
                 <boxGeometry args={[3, 0.1, 3]}/>
-                <meshBasicMaterial color={'orange'} />
+                <meshToonMaterial color={movingPlatformColor} />
             </mesh>
         </RigidBody>
         <RigidBody ref={movingPlatformTwo} type="kinematicPosition">
-            <mesh>
+            <mesh receiveShadow>
                 <boxGeometry args={[2, 0.1, 2]}/>
-                <meshBasicMaterial color={'orange'} />
+                <meshToonMaterial color={movingPlatformColor} />
             </mesh>
         </RigidBody>
     </>

@@ -1,7 +1,7 @@
 import { useMatcapTexture, Center, Text3D } from "@react-three/drei"
 import * as THREE from 'three'
 
-export default function StartText({position})
+export default function StartText({position, startTextColor})
 {
 
     const matcapDark = new THREE.TextureLoader().load('./Matcaps/matcapBlackShiny.png')
@@ -24,8 +24,7 @@ export default function StartText({position})
                 castShadow
             >
                 start
-                {/* <meshNormalMaterial /> */}
-                <meshMatcapMaterial matcap={matcapDark}/>
+                <meshToonMaterial color={startTextColor}/>
             </Text3D>
         </Center>
     </>

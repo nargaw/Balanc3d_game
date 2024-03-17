@@ -20,6 +20,8 @@ export default create(subscribeWithSelector((set) => {
                 {
                     return {lossCount: state.lossCount + 1}
                 }
+
+                return {}
             })
         },
 

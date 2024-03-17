@@ -1,7 +1,7 @@
 import { useMatcapTexture, Center, Text3D } from "@react-three/drei"
 import * as THREE from 'three'
 
-export default function FinishText({position})
+export default function FinishText({position, finishTextColor})
 {
 
     const matcapDark = new THREE.TextureLoader().load('./Matcaps/matcapBlackShiny.png')
@@ -22,8 +22,7 @@ export default function FinishText({position})
                 castShadow
             >
                 finish
-                {/* <meshNormalMaterial /> */}
-                <meshMatcapMaterial matcap={matcapDark}/>
+                <meshToonMaterial color={finishTextColor}/>
             </Text3D>
         </Center>
     </>
