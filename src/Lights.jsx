@@ -13,7 +13,6 @@ export default function Lights(){
     useThree((state) => {
         state.scene.traverse(e => {
             if(e.type === 'Line'){
-                console.log(e.material)
                 e.material.visible = false
             }
         })

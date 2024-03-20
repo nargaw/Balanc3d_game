@@ -4,6 +4,9 @@ import { useKeyboardControls } from "@react-three/drei";
 import { useRef, useEffect, useState } from "react";
 import * as THREE from 'three'
 import useGame from "../stores/useGame";
+import platform from "platform";
+import ChaseCamera from "./chaseCamera";
+import KeyboardControls from "./keyboardControls";
 
 export default function Player()
 {
@@ -33,8 +36,7 @@ export default function Player()
     } 
 
     const [ subscribeKeys, getKeys ] = useKeyboardControls()
-    const [ smoothedCameraPosition ] = useState(() => new THREE.Vector3(10, 10, 10))
-    const [ smoothedCameraTarget ] = useState(() => new THREE.Vector3())
+
 
     const body = useRef()
     const mesh = useRef()
@@ -138,22 +140,7 @@ export default function Player()
             body?.current?.applyTorqueImpulse(torque)
 
             const bodyPosition = body.current.translation()
-            const cameraPosition = new THREE.Vector3()
-            cameraPosition.copy(bodyPosition)
-            cameraPosition.z += 5.25
-            cameraPosition.y += 12.5
-        
-            const cameraTarget = new THREE.Vector3()
-            cameraTarget.copy(bodyPosition)
-            cameraTarget.y += 0.25
-
-            smoothedCameraPosition.lerp(cameraPosition,3 * delta)
-            smoothedCameraTarget.lerp(cameraTarget, 3 * delta)
-
-            state.camera.position.copy(smoothedCameraPosition)
-            state.camera.lookAt(smoothedCameraTarget)
-            
-
+           
             if(bodyPosition.z < 4.5){
                 start()
             }
@@ -167,7 +154,6 @@ export default function Player()
                 }
                 body.current.setLinvel({ x: 0, y: 0, z: 0 })
                 body.current.setAngvel({ x: 0, y: 0, z: 0 })
-
             }
             if(bodyPosition.y < -4){
                 died()
@@ -175,11 +161,11 @@ export default function Player()
                 restart()
             }
         }
-
-        
     })
 
     return <>
+        {platform.name == 'Safari' ? DeviceOrientationEvent.requestPermission() : console.log('not safari')}
+        
         <RigidBody
             ref={body} 
             colliders="ball" 
@@ -202,5 +188,7 @@ export default function Player()
                 {/* <meshMatcapMaterial matcap={matcapDark} /> */}
             </mesh>
         </RigidBody>
+        <ChaseCamera body={body}/>
+        {/* <KeyboardControls body={body} /> */}
     </>
 }
