@@ -14,8 +14,8 @@ export default function ChaseCamera({body})
             const bodyPosition = body.current.translation()
             const cameraPosition = new THREE.Vector3()
             cameraPosition.copy(bodyPosition)
-            cameraPosition.z += 5.25
-            cameraPosition.y += 12.5
+            cameraPosition.z += 10.25
+            cameraPosition.y += 20.5
 
             const cameraTarget = new THREE.Vector3()
             cameraTarget.copy(bodyPosition)

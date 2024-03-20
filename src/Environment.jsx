@@ -8,7 +8,17 @@ import Level5 from "./Levels/Level5";
 
 export default function Environment(){
 
-    const {wallColor, floorColor, startFloorColor, finishFloorColor, movingPlatformColor, startTextColor, finishTextColor} = useControls({
+    // const {wallColor, floorColor, startFloorColor, finishFloorColor, movingPlatformColor, startTextColor, finishTextColor} = useControls({
+    //     wallColor: '#264653',
+    //     floorColor: '#287271',
+    //     startFloorColor: '#2a9d8f',
+    //     finishFloorColor: '#e76f51',
+    //     movingPlatformColor: '#e9c46a',
+    //     startTextColor: '#8ab17d',
+    //     finishTextColor: '#f4a261'
+    // })
+
+    const {wallColor, floorColor, startFloorColor, finishFloorColor, movingPlatformColor, startTextColor, finishTextColor} = {
         wallColor: '#264653',
         floorColor: '#287271',
         startFloorColor: '#2a9d8f',
@@ -16,7 +26,7 @@ export default function Environment(){
         movingPlatformColor: '#e9c46a',
         startTextColor: '#8ab17d',
         finishTextColor: '#f4a261'
-    })
+    }
 
     return <>
         {/* <Grid 
