@@ -4,6 +4,8 @@ import { subscribeWithSelector } from 'zustand/middleware'
 export default create(subscribeWithSelector((set) => {
     return {
 
+        pageStatus: 'load',
+
         level: 1,
 
         lossCount: 0,
@@ -92,6 +94,15 @@ export default create(subscribeWithSelector((set) => {
                 }
 
                 return {}
+            })
+        },
+
+        startGame: () => {
+            set((state) => 
+            {
+                if(state.pageStatus === 'load'){
+                    return {pageStatus: 'playing'}
+                }
             })
         }
     }

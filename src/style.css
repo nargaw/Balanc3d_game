@@ -1,3 +1,9 @@
+@font-face {
+  font-family: "MadimiOne";
+  src: url('../public/Fonts/MadimiOne-Regular.ttf');
+}
+
+
 html,
 body,
 #root

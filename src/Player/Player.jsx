@@ -110,6 +110,8 @@ export default function Player()
             torque.z += torqueStrength * -leftRight
         }
 
+
+
         //Keyboard
         if(forward)
         {
@@ -164,7 +166,7 @@ export default function Player()
     })
 
     return <>
-        {platform.name == 'Safari' ? DeviceOrientationEvent.requestPermission() : console.log('not safari')}
+        
         
         <RigidBody
             ref={body} 
