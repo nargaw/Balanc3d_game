@@ -1,26 +1,29 @@
-import { useHelper } from "@react-three/drei";
+import { useHelper, Sparkles } from "@react-three/drei";
 import { useEffect, useRef } from "react";
 import * as THREE from 'three'
-import useGame from "./stores/useGame";
 import { useThree } from "@react-three/fiber";
+import useGame from "./stores/useGame";
 
 export default function Lights(){
 
     const directionalLightRef = useRef()
     const level = useGame(state => state.level)
+    const sparklesRef = useRef()
+    const pageStatus = useGame(state => state.pageStatus)
 
-    useHelper(directionalLightRef, THREE.DirectionalLightHelper, 1)
-    useThree((state) => {
-        state.scene.traverse(e => {
-            if(e.type === 'Line'){
-                e.material.visible = false
-            }
-        })
-    })
+    useHelper(directionalLightRef, THREE.DirectionalLightHelper, 0)
+    // useThree((state) => {
+    //     state.scene.traverse(e => {
+    //         if(e.type === 'Line'){
+    //             e.material.visible = false
+    //         }
+    //     })
+    // })
 
     useEffect(() => {
         directionalLightRef.current.position.x = 10 + (25 * (level - 3)) 
         directionalLightRef.current.target.position.x = 0 + (25 * (level -3))
+        sparklesRef.current.position.x = (25 * (level - 3))
     }, [level])
 
     return (
@@ -39,6 +42,8 @@ export default function Lights(){
                 ref={directionalLightRef}
             />
             <ambientLight intensity={1.5}/>
+
+            <Sparkles ref={sparklesRef} scale={[50, 20, 50]} size={3}/>
         </>
     )
 }

@@ -1,4 +1,4 @@
-import { Grid, Stage } from "@react-three/drei";
+import { Sparkles } from "@react-three/drei";
 import { useControls } from "leva";
 import Level1 from "./Levels/Level1";
 import Level2 from "./Levels/Level2";
@@ -40,5 +40,7 @@ export default function Environment(){
         <Level3 wallColor={wallColor} floorColor={floorColor} startFloorColor={startFloorColor} finishFloorColor={finishFloorColor} startTextColor={startTextColor} finishTextColor={finishTextColor}/>
         <Level4 wallColor={wallColor} floorColor={floorColor} startFloorColor={startFloorColor} finishFloorColor={finishFloorColor} movingPlatformColor={movingPlatformColor} startTextColor={startTextColor} finishTextColor={finishTextColor}/>
         <Level5 wallColor={wallColor} floorColor={floorColor} startFloorColor={startFloorColor} finishFloorColor={finishFloorColor} movingPlatformColor={movingPlatformColor} startTextColor={startTextColor} finishTextColor={finishTextColor}/>
+
+        
     </>
 }

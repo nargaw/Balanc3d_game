@@ -29,7 +29,7 @@ export default function App()
                 { name: 'rightward', keys: [ 'ArrowRight', 'KeyD' ] },
             ] }
         >
-            <Canvas shadows camera={{fov: 50, position: [0, 50, 0]}} >
+            <Canvas shadows camera={{fov: 50, position: [0, 0, 20]}} >
                 <OrbitControls
                     makeDefault 
                     maxDistance={150}

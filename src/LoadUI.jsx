@@ -32,7 +32,7 @@ export default function LoadUI()
 
     const titleStyle = {
         color: '#e9c46a',
-        flex: '300px',
+        flex: '400px',
         textAlign: 'center',
         fontSize: '46px'
         // boxShadow: '10px 5px 5px #264653'
