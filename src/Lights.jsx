@@ -12,13 +12,13 @@ export default function Lights(){
     const pageStatus = useGame(state => state.pageStatus)
 
     useHelper(directionalLightRef, THREE.DirectionalLightHelper, 0)
-    // useThree((state) => {
-    //     state.scene.traverse(e => {
-    //         if(e.type === 'Line'){
-    //             e.material.visible = false
-    //         }
-    //     })
-    // })
+    useThree((state) => {
+        state.scene.traverse(e => {
+            if(e.type === 'Line'){
+                e.material.visible = false
+            }
+        })
+    })
 
     useEffect(() => {
         directionalLightRef.current.position.x = 10 + (25 * (level - 3)) 
