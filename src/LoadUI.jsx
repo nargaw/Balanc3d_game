@@ -22,19 +22,22 @@ export default function LoadUI()
         fontFamily: 'MadimiOne, sans-serif',
         display: 'flex',
         flexDirection: 'column',
+        alignItems: 'center',
         justifyContent: 'center',
         position: 'absolute',
         left: '50%',
         top: '50%',
         transform: 'translate(-50%, -50%)',
-        zIndex: '2'
+        zIndex: '2', 
     }
 
     const titleStyle = {
         color: '#e9c46a',
-        flex: '400px',
+        // flex: '300px',
         textAlign: 'center',
-        fontSize: '46px'
+        fontSize: '46px',
+        paddingTop: '50px',
+        paddingBottom: '100px'
         // boxShadow: '10px 5px 5px #264653'
     }
 
@@ -45,7 +48,24 @@ export default function LoadUI()
         flex: '50px',
         width: '200px',
         justifyContent: 'center',
-        fontSize: '24px'
+        fontSize: '24px',
+        cursor: 'pointer',
+        marginTop: '300px',
+        color: '#2a9d8f'
+        // paddingTop: '50px'
+    }
+
+    const madeWithLoveStyle = {
+        color: '#f4a261',
+        marginTop: '100px',
+        fontSize: '15px',
+        justifyContent: 'center',
+        alignItem: 'center',
+        textAlign: 'justify',
+    }
+
+    const spanStyle = {
+        fontSize: '15px'
     }
 
     return <>
@@ -55,6 +75,8 @@ export default function LoadUI()
             <div className="animation"></div>
 
             <button style={buttonStyle} className="startGameButton" onClick={startGame}>Start</button>
+
+            <p style={madeWithLoveStyle}>made with <span style={spanStyle}>&#9825;</span> by Sost Studio</p>
 
         </div>
         

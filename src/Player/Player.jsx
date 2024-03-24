@@ -157,7 +157,7 @@ export default function Player()
                 body.current.setLinvel({ x: 0, y: 0, z: 0 })
                 body.current.setAngvel({ x: 0, y: 0, z: 0 })
             }
-            if(bodyPosition.y < -4){
+            if(bodyPosition.y < -4 || bodyPosition.y > 4){
                 died()
                 gameOver()
                 restart()

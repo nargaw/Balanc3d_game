@@ -57,6 +57,6 @@ export default function LoadExperience()
             shadow-camera-bottom={-50}
             shadow-camera-left={-20}
         />
-        <Sparkles scale={[20, 20, 10]} size={3}/>
+        <Sparkles scale={[20, 20, 10]} size={4}/>
     </>
 }

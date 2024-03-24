@@ -4,6 +4,7 @@ import { OrbitControls } from '@react-three/drei'
 import { KeyboardControls } from '@react-three/drei'
 import { Leva } from 'leva'
 import LoadUI from './LoadUI'
+import GameUI from './GameUI'
 import useGame from './stores/useGame'
 
 export default function App()
@@ -13,6 +14,7 @@ export default function App()
 
     return <>
         {pageStatus === 'load' && <LoadUI />}
+        {pageStatus === 'playing' && <GameUI />}
         <Leva
             fill = {false}
             flat = {false} 
