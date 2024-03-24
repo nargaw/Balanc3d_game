@@ -135,8 +135,8 @@ export default function Level5({wallColor, floorColor, startFloorColor, finishFl
                 <boxGeometry args={[4, 0.1, 3]} />
                 <meshToonMaterial color={startFloorColor}/>
             </mesh>
-            <mesh receiveShadow position={[-0.5 + (factor * spacingValue), 0, -17.]}>
-                <boxGeometry args={[4, 0.1, 3]} />
+            <mesh receiveShadow position={[-1 + (factor * spacingValue), 0, -17.]}>
+                <boxGeometry args={[3, 0.1, 3]} />
                 <meshToonMaterial color={finishFloorColor}/>
             </mesh>
         </RigidBody>
