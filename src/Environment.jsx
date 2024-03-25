@@ -6,6 +6,7 @@ import Level3 from "./Levels/Level3";
 import Level4 from "./Levels/Level4";
 import Level5 from "./Levels/Level5";
 import Level6 from "./Levels/Level6";
+import Level7 from "./Levels/Level7";
 
 export default function Environment(){
 
@@ -42,6 +43,6 @@ export default function Environment(){
         <Level4 wallColor={wallColor} floorColor={floorColor} startFloorColor={startFloorColor} finishFloorColor={finishFloorColor} movingPlatformColor={movingPlatformColor} startTextColor={startTextColor} finishTextColor={finishTextColor}/>
         <Level5 wallColor={wallColor} floorColor={floorColor} startFloorColor={startFloorColor} finishFloorColor={finishFloorColor} movingPlatformColor={movingPlatformColor} startTextColor={startTextColor} finishTextColor={finishTextColor}/>
         <Level6 wallColor={wallColor} floorColor={floorColor} startFloorColor={startFloorColor} finishFloorColor={finishFloorColor} movingPlatformColor={movingPlatformColor} startTextColor={startTextColor} finishTextColor={finishTextColor}/>
-        
+        <Level7 wallColor={wallColor} floorColor={floorColor} startFloorColor={startFloorColor} finishFloorColor={finishFloorColor} movingPlatformColor={movingPlatformColor} startTextColor={startTextColor} finishTextColor={finishTextColor}/>
     </>
 }

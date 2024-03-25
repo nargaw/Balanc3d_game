@@ -8,9 +8,8 @@ export default function LoadUI()
     const changeStartGame = useGame(state => state.startGame)
 
     const askPermissionOnSafari = () => {
-        platform.name == 'Safari' ? DeviceOrientationEvent.requestPermission() : console.log('not safari')
+        platform.os.family == 'iOS' ? DeviceOrientationEvent.requestPermission() : console.log('not iOS')
     }
-    // {platform.name == 'Safari' ? DeviceOrientationEvent.requestPermission() : console.log('not safari')}
 
     const startGame = () => {
         askPermissionOnSafari()

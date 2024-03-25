@@ -25,15 +25,18 @@ export default function Player()
     // console.log(phase, level)
 
     const factor = 25
-    const maxLevel = 6
+    const maxLevel = 7
+
+    // console.log(factor * (level - 3))
 
     const startPositions = {
-        1: {x: -50.5, y: 1, z: 6 },
-        2: {x: -25.5, y: 1, z: 6 },
-        3: {x: -5.5, y: 1, z: 6 },
-        4: {x: 24.5, y: 1, z: 6 },
-        5: {x: 49.5, y: 1, z: 6 },
-        6: {x: 74.0, y: 1, z: 6 },
+        1: {x: -0.5 + factor * (level - 3), y: 1, z: 6 },
+        2: {x: -0.5 + factor * (level - 3), y: 1, z: 6 },
+        3: {x: -5.5 + factor * (level - 3), y: 1, z: 6 },
+        4: {x: -0.5 + factor * (level - 3), y: 1, z: 6 },
+        5: {x: -0.5 + factor * (level - 3), y: 1, z: 6 },
+        6: {x: -1 + factor * (level - 3), y: 1, z: 6 },
+        7: {x: -1 + factor * (level - 3), y: 1, z: 6 },
     } 
 
     const [ subscribeKeys, getKeys ] = useKeyboardControls()

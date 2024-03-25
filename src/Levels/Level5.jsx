@@ -19,7 +19,7 @@ export default function Level5({wallColor, floorColor, startFloorColor, finishFl
         movingPlatform?.current?.setNextKinematicTranslation({
             x: -3 + (factor * spacingValue),
             y: 0,
-            z: z -3
+            z: z-3
         })
         movingPlatformTwo?.current?.setNextKinematicTranslation({
             x: x + 4.5 + (factor * spacingValue),

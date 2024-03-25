@@ -36,7 +36,10 @@ export default function App()
                     makeDefault 
                     maxDistance={150}
                     minDistance={5}
-                    maxPolarAngle={Math.PI * 0.45}
+                    maxPolarAngle={-Math.PI * 0.35}
+                    minPolarAngle={Math.PI * 0.35}
+                    enableZoom={false}
+                    enablePan={false}
                 />
                 <Experience />
             </Canvas>
