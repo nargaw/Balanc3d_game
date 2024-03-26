@@ -170,6 +170,8 @@ export default function Player()
             }
             if(bodyPosition.y > 2){
                 body.current.setTranslation(startPositions[level])
+                body.current.setLinvel({ x: 0, y: 0, z: 0 })
+                body.current.setAngvel({ x: 0, y: 0, z: 0 })
             }
         }
     })
