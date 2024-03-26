@@ -1,11 +1,15 @@
 import useGame from "./stores/useGame"
 import platform from "platform"
+// import nosleep from "nosleep.js"
+import NoSleep from "nosleep.js"
 
 export default function LoadUI()
 {
 
     const pageStatus = useGame(state => state.pageStatus)
     const changeStartGame = useGame(state => state.startGame)
+    // console.log(NoSleep)
+    const noSleep = new NoSleep()
 
     const askPermissionOnSafari = () => {
         platform.os.family == 'iOS' ? DeviceOrientationEvent.requestPermission() : console.log('not iOS')
@@ -14,6 +18,7 @@ export default function LoadUI()
     const startGame = () => {
         askPermissionOnSafari()
         changeStartGame()
+        noSleep.enable()
     }
     
     //style

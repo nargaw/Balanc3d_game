@@ -36,8 +36,10 @@ export default function App()
                     makeDefault 
                     maxDistance={150}
                     minDistance={5}
-                    maxPolarAngle={-Math.PI * 0.35}
-                    minPolarAngle={Math.PI * 0.35}
+                    maxPolarAngle={-Math.PI * 0.425}
+                    minPolarAngle={Math.PI * 0.425}
+                    minAzimuthAngle={Math.PI}
+                    maxAzimuthAngle={Math.PI}
                     enableZoom={false}
                     enablePan={false}
                 />
