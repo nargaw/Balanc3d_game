@@ -25,7 +25,7 @@ export default function Player()
     // console.log(phase, level)
 
     const factor = 25
-    const maxLevel = 7
+    const maxLevel = 8
 
     // console.log(factor * (level - 3))
 
@@ -37,6 +37,7 @@ export default function Player()
         5: {x: -0.5 + factor * (level - 3), y: 1, z: 6 },
         6: {x: -1 + factor * (level - 3), y: 1, z: 6 },
         7: {x: -1 + factor * (level - 3), y: 1, z: 6 },
+        8: {x: -1 + factor * (level - 3), y: 1, z: 6 },
     } 
 
     const [ subscribeKeys, getKeys ] = useKeyboardControls()
@@ -151,7 +152,7 @@ export default function Player()
                 start()
             }
 
-            if(bodyPosition.z < -15.5){
+            if(bodyPosition.z < -15.5 && bodyPosition.y > 0){
                 if(level < maxLevel) {
                     end()
                     levelUp()
@@ -161,10 +162,14 @@ export default function Player()
                 body.current.setLinvel({ x: 0, y: 0, z: 0 })
                 body.current.setAngvel({ x: 0, y: 0, z: 0 })
             }
-            if(bodyPosition.y < -4 || bodyPosition.y > 4){
+            if(bodyPosition.y < -4 ){
                 died()
                 gameOver()
                 restart()
+                
+            }
+            if(bodyPosition.y > 2){
+                body.current.setTranslation(startPositions[level])
             }
         }
     })

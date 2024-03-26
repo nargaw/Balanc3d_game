@@ -31,17 +31,11 @@ export default function App()
                 { name: 'rightward', keys: [ 'ArrowRight', 'KeyD' ] },
             ] }
         >
-            <Canvas shadows camera={{fov: 50, position: [0, 0, 20]}} >
+            <Canvas shadows camera={{fov: 50, position: [0, 5, 20]}} >
                 <OrbitControls
                     makeDefault 
                     maxDistance={150}
                     minDistance={5}
-                    maxPolarAngle={-Math.PI * 0.425}
-                    minPolarAngle={Math.PI * 0.425}
-                    minAzimuthAngle={Math.PI}
-                    maxAzimuthAngle={Math.PI}
-                    enableZoom={false}
-                    enablePan={false}
                 />
                 <Experience />
             </Canvas>
