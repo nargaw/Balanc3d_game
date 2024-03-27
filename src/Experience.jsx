@@ -9,14 +9,12 @@ export default function Experience()
 {
 
     const pageStatus = useGame(state => state.pageStatus)
-    // console.log(pageStatus)
 
     return <>
         
         <Physics>
             {pageStatus === 'load' && <LoadExperience />}
             {pageStatus === 'playing' && <Environment />}
-            {/* <Environment />  */}
             {pageStatus === 'playing' && <Player />}    
         </Physics>
         <Lights />  

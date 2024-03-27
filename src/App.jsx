@@ -33,9 +33,12 @@ export default function App()
         >
             <Canvas shadows camera={{fov: 50, position: [0, 5, 20]}} >
                 <OrbitControls
-                    makeDefault 
+                    makeDefault
                     maxDistance={150}
                     minDistance={5}
+                    enablePan={false}
+                    enableRotate={false}
+                    enableZoom={false}
                 />
                 <Experience />
             </Canvas>

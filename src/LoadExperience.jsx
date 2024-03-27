@@ -18,7 +18,7 @@ export default function LoadExperience()
 
         const rotation = new THREE.Quaternion()
         rotation.setFromEuler(new THREE.Euler(0, 0, value))
-        floorRef.current.setNextKinematicRotation(rotation)
+        floorRef?.current?.setNextKinematicRotation(rotation)
 
         const bodyPosition = loadingBall.current.translation()
 
