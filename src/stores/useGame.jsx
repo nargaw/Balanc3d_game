@@ -109,7 +109,15 @@ export default create(subscribeWithSelector((set) => {
                         lossCount: 0,
                         
                     }
-                } else {
+                } 
+
+                return {}
+            })
+        },
+
+        restartGame: () => {
+            set((state) => {
+                if(state.level === 10) {
                     return {
                         level: 1,
                         lossCount: 0,

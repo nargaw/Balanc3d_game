@@ -7,7 +7,7 @@ export default function LevelCompleteUI()
     const restartLevel = useGame(state => state.restartLevel)
     const levelUp = useGame(state => state.levelUp)
     const level = useGame(state => state.level)
-    const gameOver = useGame(state => state.gameOver)
+    const restartGame = useGame(state => state.restartGame)
     console.log(level)    
 
     const containerStyle = {
@@ -60,7 +60,7 @@ export default function LevelCompleteUI()
             <div style={buttonContainerStyle}>
                 <button style={buttonStyle} onClick={restartLevel}>replay</button>
                 {level < 10 && <button style={buttonStyle} onClick={levelUp}>next</button>}
-                {level === 10 && <button style={buttonStyle} onClick={gameOver}>restart</button>}
+                {level === 10 && <button style={buttonStyle} onClick={restartGame}>restart</button>}
             </div>
         </div>
     </>
