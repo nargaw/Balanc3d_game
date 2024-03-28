@@ -6,15 +6,18 @@ import { Leva } from 'leva'
 import LoadUI from './LoadUI'
 import GameUI from './GameUI'
 import useGame from './stores/useGame'
+import LevelCompleteUI from './LevelCompleteUI'
 
 export default function App()
 {
 
     const pageStatus = useGame(state => state.pageStatus)
-
+    const popUp = useGame(state => state.popUp)
+    
     return <>
         {pageStatus === 'load' && <LoadUI />}
         {pageStatus === 'playing' && <GameUI />}
+        {popUp && <LevelCompleteUI />}
         <Leva
             fill = {false}
             flat = {false} 

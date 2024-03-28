@@ -55,7 +55,7 @@ export default function LoadUI()
         fontSize: '24px',
         cursor: 'pointer',
         marginTop: '300px',
-        color: '#2a9d8f'
+        color: '#264653',
         // paddingTop: '50px'
     }
 
@@ -69,7 +69,8 @@ export default function LoadUI()
     }
 
     const spanStyle = {
-        fontSize: '15px'
+        fontSize: '15px',
+        
     }
 
     return <>

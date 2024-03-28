@@ -6,6 +6,8 @@ export default create(subscribeWithSelector((set) => {
 
         pageStatus: 'load',
 
+        popUp: false,
+
         level: 1,
 
         lossCount: 0,
@@ -60,10 +62,23 @@ export default create(subscribeWithSelector((set) => {
 
                 if(state.phase === 'playing')
                 {
-                    return {phase: 'ended'}
+                    return {phase: 'ended', popUp: true}
                 }
 
                 return {}
+            })
+        },
+
+        restartLevel: () =>
+        {
+            set((state) => 
+            {
+                if(state.popUp === true)
+                {
+                    return {phase: 'ready',
+                            popUp: false    
+                    }
+                }
             })
         },
 
@@ -71,10 +86,12 @@ export default create(subscribeWithSelector((set) => {
         {
             set((state) => 
             {
-                if(state.phase === 'ended')
+                if(state.popUp === true)
                 {
                     return {level: state.level + 1,
-                            phase: 'ready'}
+                            phase: 'ready',
+                            popUp: false
+                        }
                 }
 
                 return {}
@@ -89,7 +106,15 @@ export default create(subscribeWithSelector((set) => {
                 {
                     return {
                         level: 1,
-                        lossCount: 0
+                        lossCount: 0,
+                        
+                    }
+                } else {
+                    return {
+                        level: 1,
+                        lossCount: 0,
+                        phase: 'ready',
+                        popUp: false
                     }
                 }
 

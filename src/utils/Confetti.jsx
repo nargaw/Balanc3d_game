@@ -32,8 +32,9 @@ export default function ExplosionConfetti(
     areaHeight = 1,
     fallingHeight = 10,
     fallingSpeed = 8,
-    colors = [0x0000ff, 0xff0000, 0xffff00],
-    enableShadows = false
+    colors = [0xe76f51, 0x287271, 0xe9c46a],
+    enableShadows = false,
+    position = [0, 0, 0]
   },
   props
 ) {
@@ -46,9 +47,9 @@ export default function ExplosionConfetti(
   function explode() {
     const boom = new THREE.Object3D()
     boom.life = Math.random() * 5 + 5
-    boom.position.x = -(areaWidth / 2) + areaWidth * Math.random()
-    boom.position.y = fallingHeight + areaHeight - fallingSpeed
-    boom.position.z = -(areaWidth / 2) + areaWidth * Math.random()
+    boom.position.x = -(areaWidth / 2) + areaWidth * Math.random() + position[0]
+    boom.position.y = fallingHeight + areaHeight - fallingSpeed + position[1]
+    boom.position.z = -(areaWidth / 2) + areaWidth * Math.random() + position[2]
     groupRef.current.add(boom)
     booms.push(boom)
 

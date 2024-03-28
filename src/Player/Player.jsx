@@ -7,6 +7,7 @@ import useGame from "../stores/useGame";
 import platform from "platform";
 import ChaseCamera from "./chaseCamera";
 import KeyboardControls from "./keyboardControls";
+import ExplosionConfetti from "../utils/Confetti";
 
 export default function Player()
 {
@@ -20,6 +21,7 @@ export default function Player()
     const died = useGame((state) => state.died)
     const gameOver = useGame((state) => state.gameOver)
     const lossCount = useGame((state) => state.lossCount)
+    const popUp = useGame((state) => state.popUp)
     
     const matcapDark = new THREE.TextureLoader().load('./Matcaps/matcapBlackShiny.png')
     // console.log(phase, level)
@@ -145,8 +147,12 @@ export default function Player()
         }
 
         if(body.current){
-            body?.current?.applyImpulse(impulse)
-            body?.current?.applyTorqueImpulse(torque)
+
+            if(!popUp){
+                body?.current?.applyImpulse(impulse)
+                body?.current?.applyTorqueImpulse(torque)
+            }
+            
 
             const bodyPosition = body.current.translation()
            
@@ -155,14 +161,9 @@ export default function Player()
             }
 
             if(bodyPosition.z < -15.5 && bodyPosition.y > 0){
-                if(level < maxLevel) {
+                if(level <= maxLevel) {
                     end()
-                    levelUp()
-                } else {
-                    body.current.setTranslation(startPositions[level])
-                }
-                body.current.setLinvel({ x: 0, y: 0, z: 0 })
-                body.current.setAngvel({ x: 0, y: 0, z: 0 })
+                } 
             }
             if(bodyPosition.y < -4 ){
                 died()
@@ -170,7 +171,7 @@ export default function Player()
                 restart()
                 
             }
-            if(bodyPosition.y > 2){
+            if(bodyPosition.y > 4){
                 body.current.setTranslation(startPositions[level])
                 body.current.setLinvel({ x: 0, y: 0, z: 0 })
                 body.current.setAngvel({ x: 0, y: 0, z: 0 })
@@ -180,7 +181,13 @@ export default function Player()
 
     return <>
         
-        
+        <ExplosionConfetti position={
+                    [
+                        (level === 3) ? startPositions[level].x + 6 : startPositions[level].x,
+                        startPositions[level].y,
+                        -18,
+                    ]
+                } isExploding={(popUp === true) ? true : false} />
         <RigidBody
             ref={body} 
             colliders="ball" 
