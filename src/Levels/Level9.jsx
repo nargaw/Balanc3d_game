@@ -119,12 +119,42 @@ export default function Level9({wallColor, floorColor, startFloorColor, finishFl
             </mesh>
 
             //playing floor
-            <mesh receiveShadow position={[-1 + (factor * spacingValue), 0, 3.5]}>
-                <boxGeometry args={[1, 0.1, 2]} />
+            <mesh receiveShadow position={[-1. + (factor * spacingValue), 0, 3.25]}>
+                <boxGeometry args={[1, 0.1, 2.5]} />
                 <meshToonMaterial color={floorColor}/>
             </mesh>
-            <mesh receiveShadow position={[-1 + (factor * spacingValue), 0, -14.5]}>
-                <boxGeometry args={[1, 0.1, 2]} />
+            <mesh receiveShadow position={[-1 + (factor * spacingValue), 0, -14.25]}>
+                <boxGeometry args={[1, 0.1, 2.5]} />
+                <meshToonMaterial color={floorColor}/>
+            </mesh>
+            <mesh receiveShadow position={[0 + (factor * spacingValue), 0, 0.5]}>
+                <boxGeometry args={[1, 0.1, 1]} />
+                <meshToonMaterial color={floorColor}/>
+            </mesh>
+
+            <mesh receiveShadow position={[-2 + (factor * spacingValue), 0, -1.5]}>
+                <boxGeometry args={[1, 0.1, 1]} />
+                <meshToonMaterial color={floorColor}/>
+            </mesh>
+
+            <mesh receiveShadow position={[0 + (factor * spacingValue), 0, -3.5]}>
+                <boxGeometry args={[1, 0.1, 1]} />
+                <meshToonMaterial color={floorColor}/>
+            </mesh>
+            <mesh receiveShadow position={[-2 + (factor * spacingValue), 0, -5.5]}>
+                <boxGeometry args={[1, 0.1, 1]} />
+                <meshToonMaterial color={floorColor}/>
+            </mesh>
+            <mesh receiveShadow position={[0 + (factor * spacingValue), 0, -7.5]}>
+                <boxGeometry args={[1, 0.1, 1]} />
+                <meshToonMaterial color={floorColor}/>
+            </mesh>
+            <mesh receiveShadow position={[-2 + (factor * spacingValue), 0, -9.5]}>
+                <boxGeometry args={[1, 0.1, 1]} />
+                <meshToonMaterial color={floorColor}/>
+            </mesh>
+            <mesh receiveShadow position={[0 + (factor * spacingValue), 0, -11.5]}>
+                <boxGeometry args={[1, 0.1, 1]} />
                 <meshToonMaterial color={floorColor}/>
             </mesh>
         </RigidBody>
@@ -132,56 +162,56 @@ export default function Level9({wallColor, floorColor, startFloorColor, finishFl
         //moving
         <RigidBody ref={platform1} type="kinematicPosition" position={[(factor * spacingValue) -1, 0, 1.5]}>
             <mesh receiveShadow castShadow position={[0, 0, 0]}>
-                <boxGeometry args={[3, 0.1, 2]} />
+                <boxGeometry args={[3, 0.1, 1]} />
                 <meshToonMaterial color={movingPlatformColor}/>
             </mesh>
         </RigidBody>
 
         <RigidBody ref={platform2} type="kinematicPosition" position={[(factor * spacingValue) -1, 0, -0.5]}>
             <mesh receiveShadow castShadow position={[0, 0, 0]}>
-                <boxGeometry args={[3, 0.1, 2]} />
+                <boxGeometry args={[3, 0.1, 1]} />
                 <meshToonMaterial color={movingPlatformColor}/>
             </mesh>
         </RigidBody>
 
         <RigidBody ref={platform3} type="kinematicPosition" position={[(factor * spacingValue) -1, 0, -2.5]}>
             <mesh receiveShadow castShadow position={[0, 0, 0]}>
-                <boxGeometry args={[3, 0.1, 2]} />
+                <boxGeometry args={[3, 0.1, 1]} />
                 <meshToonMaterial color={movingPlatformColor}/>
             </mesh>
             
         </RigidBody>
         <RigidBody ref={platform4} type="kinematicPosition" position={[(factor * spacingValue) -1, 0, -4.5]}>
             <mesh receiveShadow castShadow position={[0, 0, 0]}>
-                <boxGeometry args={[3, 0.1, 2]} />
+                <boxGeometry args={[3, 0.1, 1]} />
                 <meshToonMaterial color={movingPlatformColor}/>
             </mesh>
         </RigidBody>
 
         <RigidBody ref={platform5} type="kinematicPosition" position={[(factor * spacingValue) -1, 0, -6.5]}>
             <mesh receiveShadow castShadow position={[0, 0, 0]}>
-                <boxGeometry args={[3, 0.1, 2]} />
+                <boxGeometry args={[3, 0.1, 1]} />
                 <meshToonMaterial color={movingPlatformColor}/>
             </mesh>
         </RigidBody>
 
         <RigidBody ref={platform6} type="kinematicPosition" position={[(factor * spacingValue) -1, 0, -8.5]}>
             <mesh receiveShadow castShadow position={[0, 0, 0]}>
-                <boxGeometry args={[3, 0.1, 2]} />
+                <boxGeometry args={[3, 0.1, 1]} />
                 <meshToonMaterial color={movingPlatformColor}/>
             </mesh>
             
         </RigidBody>
         <RigidBody ref={platform7} type="kinematicPosition" position={[(factor * spacingValue) -1, 0, -10.5]}>
             <mesh receiveShadow castShadow position={[0, 0, 0]}>
-                <boxGeometry args={[3, 0.1, 2]} />
+                <boxGeometry args={[3, 0.1, 1]} />
                 <meshToonMaterial color={movingPlatformColor}/>
             </mesh>
         </RigidBody>
 
         <RigidBody ref={platform8} type="kinematicPosition" position={[(factor * spacingValue) -1, 0, -12.5]}>
             <mesh receiveShadow castShadow position={[0, 0, 0]}>
-                <boxGeometry args={[3, 0.1, 2]} />
+                <boxGeometry args={[3, 0.1, 1]} />
                 <meshToonMaterial color={movingPlatformColor}/>
             </mesh>
         </RigidBody>

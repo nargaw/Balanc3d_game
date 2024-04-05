@@ -172,14 +172,14 @@ export default function Level7({wallColor, floorColor, startFloorColor, finishFl
 
         <RigidBody ref={movingPlatform2} type="kinematicPosition">
             <mesh receiveShadow position={[0, 0, 0]}>
-                <boxGeometry args={[3, 0.1, 2]} />
+                <boxGeometry args={[2.5, 0.1, 2]} />
                 <meshToonMaterial color={movingPlatformColor}/>
             </mesh>
         </RigidBody>
 
         <RigidBody ref={movingPlatform3} type="kinematicPosition">
             <mesh receiveShadow position={[0, 0, 0]}>
-                <boxGeometry args={[3, 0.1, 2]} />
+                <boxGeometry args={[2, 0.1, 2]} />
                 <meshToonMaterial color={movingPlatformColor}/>
             </mesh>
         </RigidBody>

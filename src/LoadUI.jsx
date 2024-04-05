@@ -15,10 +15,16 @@ export default function LoadUI()
         platform.os.family == 'iOS' ? DeviceOrientationEvent.requestPermission() : console.log('not iOS')
     }
 
+    const lockScreenOrientation = () => {
+        console.log(screen.orientation.type)
+        screen.orientation.lock()
+    }
+
     const startGame = () => {
         askPermissionOnSafari()
         changeStartGame()
         noSleep.enable()
+        // lockScreenOrientation()
     }
     
     //style

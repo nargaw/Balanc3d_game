@@ -54,9 +54,10 @@ export default function LevelCompleteUI()
 
     return <>
         <div style={containerStyle}>
-            <p style={titleStyle}>Level</p>
-            <p style={levelNumberStyle}>{level}</p>
-            <p style={titleStyle}>Completed</p>
+            {level < 10 && <p style={titleStyle}>Level</p>}
+            {level === 10 && <p style={titleStyle}>Game</p>}
+            {level < 10 && <p style={levelNumberStyle}>{level}</p>}
+            <p style={titleStyle}>Completed!</p>
             <div style={buttonContainerStyle}>
                 <button style={buttonStyle} onClick={restartLevel}>replay</button>
                 {level < 10 && <button style={buttonStyle} onClick={levelUp}>next</button>}

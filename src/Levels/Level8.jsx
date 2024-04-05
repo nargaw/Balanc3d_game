@@ -49,6 +49,80 @@ export default function Level8({wallColor, floorColor, startFloorColor, finishFl
                 <meshToonMaterial color={wallColor} />
             </mesh>
 
+            //walls
+            <mesh castShadow position={[-10 + (factor * spacingValue), 0.5, 2]}>
+                <boxGeometry args={[1, 1, 1]}/>
+                <meshToonMaterial color={wallColor} />
+            </mesh>
+            <mesh castShadow position={[-9.5 + (factor * spacingValue), 0.5, 3]}>
+                <boxGeometry args={[2, 1, 1]}/>
+                <meshToonMaterial color={wallColor} />
+            </mesh>
+
+            <mesh castShadow position={[-10 + (factor * spacingValue), 0.5, -14]}>
+                <boxGeometry args={[1, 1, 1]}/>
+                <meshToonMaterial color={wallColor} />
+            </mesh>
+            <mesh castShadow position={[-9.5 + (factor * spacingValue), 0.5, -15]}>
+                <boxGeometry args={[2, 1, 1]}/>
+                <meshToonMaterial color={wallColor} />
+            </mesh>
+
+            <mesh castShadow position={[-4 + (factor * spacingValue), 0.5, -14]}>
+                <boxGeometry args={[1, 1, 1]}/>
+                <meshToonMaterial color={wallColor} />
+            </mesh>
+            <mesh castShadow position={[-4.5 + (factor * spacingValue), 0.5, -15]}>
+                <boxGeometry args={[2, 1, 1]}/>
+                <meshToonMaterial color={wallColor} />
+            </mesh>
+
+            <mesh castShadow position={[-6 + (factor * spacingValue), 0.5, -1]}>
+                <boxGeometry args={[1, 1, 1]}/>
+                <meshToonMaterial color={wallColor} />
+            </mesh>
+            <mesh castShadow position={[-5.5 + (factor * spacingValue), 0.5, 0]}>
+                <boxGeometry args={[2, 1, 1]}/>
+                <meshToonMaterial color={wallColor} />
+            </mesh>
+
+            <mesh castShadow position={[9 + (factor * spacingValue), 0.5, -1]}>
+                <boxGeometry args={[1, 1, 1]}/>
+                <meshToonMaterial color={wallColor} />
+            </mesh>
+            <mesh castShadow position={[8.5 + (factor * spacingValue), 0.5, 0]}>
+                <boxGeometry args={[2, 1, 1]}/>
+                <meshToonMaterial color={wallColor} />
+            </mesh>
+
+            <mesh castShadow position={[9 + (factor * spacingValue), 0.5, -14]}>
+                <boxGeometry args={[1, 1, 1]}/>
+                <meshToonMaterial color={wallColor} />
+            </mesh>
+            <mesh castShadow position={[8.5 + (factor * spacingValue), 0.5, -15]}>
+                <boxGeometry args={[2, 1, 1]}/>
+                <meshToonMaterial color={wallColor} />
+            </mesh>
+
+            <mesh castShadow position={[2 + (factor * spacingValue), 0.5, -14]}>
+                <boxGeometry args={[1, 1, 1]}/>
+                <meshToonMaterial color={wallColor} />
+            </mesh>
+            <mesh castShadow position={[2.5 + (factor * spacingValue), 0.5, -15]}>
+                <boxGeometry args={[2, 1, 1]}/>
+                <meshToonMaterial color={wallColor} />
+            </mesh>
+
+            <mesh castShadow position={[1 + (factor * spacingValue), 0.5, 2]}>
+                <boxGeometry args={[1, 1, 1]}/>
+                <meshToonMaterial color={wallColor} />
+            </mesh>
+            <mesh castShadow position={[.5 + (factor * spacingValue), 0.5, 1]}>
+                <boxGeometry args={[2, 1, 1]}/>
+                <meshToonMaterial color={wallColor} />
+            </mesh>
+            
+
             
         </RigidBody>
 
