@@ -1,7 +1,7 @@
 import Environment from "./Environment"
 import Lights from "./Lights"
 import { Physics } from "@react-three/rapier"
-import Player from "./Player/player.jsx"
+import Player from "./Player/Player.jsx"
 import useGame from "./stores/useGame.jsx"
 import LoadExperience from "./LoadExperience.jsx"
 
