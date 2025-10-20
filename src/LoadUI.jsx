@@ -79,15 +79,27 @@ export default function LoadUI()
         
     }
 
+    const hnstyle = {
+        color: '#17f0e5ff',
+        fontSize: '25px',
+        margin: 0,
+        width: '215px',
+        alignItem: 'center',
+        textAlign: 'justify',
+        border: 'solid 2px',
+        padding: '5px'
+    }
+
     return <>
         <div className="UIpage" style={UIstyle}>
             <div className="title" style={titleStyle}>Balanc3d</div>
-
+            <p style={hnstyle}>Hacker News Top 10</p>
             <div className="animation"></div>
 
             <button style={buttonStyle} className="startGameButton" onClick={startGame}>Start</button>
-
+     
             <p style={madeWithLoveStyle}>made with <span style={spanStyle}>&#9825;</span> by Sost Studio</p>
+            
 
         </div>
         
